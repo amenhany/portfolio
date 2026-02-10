@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "./variables.css";
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 300;
+  min-height: 100vh;
+}
