@@ -14,27 +14,27 @@ export default function BouncyText({ text }: { text: string }) {
       tl.to(letters, {
          opacity: 1,
          y: -50,
-         duration: 0.3,
+         duration: 0.2,
          ease: 'power1.out',
-         stagger: { each: 0.1 },
+         stagger: { each: 0.05 },
       });
 
       tl.to(
          letters,
          {
             y: 0,
-            duration: 0.3,
+            duration: 0.2,
             ease: 'power1.out',
-            stagger: { each: 0.1 },
+            stagger: { each: 0.05 },
          },
-         '-=0.4',
+         '-=0.2',
       );
 
       tl.to(containerRef.current, {
          delay: 0.1,
          scale: 0.5,
-         duration: 0.3,
-         ease: 'power1.out',
+         duration: 0.25,
+         ease: 'power1.inOut',
       });
    }, [text]);
 

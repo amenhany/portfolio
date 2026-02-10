@@ -2,6 +2,13 @@
 import BouncyText from '@/components/BouncyText';
 import { AudioManager } from '@/lib/AudioManager';
 import { useEffect, useState } from 'react';
+import { Outfit } from 'next/font/google';
+
+const montserrat = Outfit({
+   subsets: ['latin'],
+   weight: ['500'],
+   display: 'swap',
+});
 
 export default function BootClient() {
    const [swapped, setSwapped] = useState(false);
@@ -10,7 +17,7 @@ export default function BootClient() {
       const timer = setTimeout(() => {
          setSwapped(true);
          AudioManager.Instance().playSfx('/audio/boot.mp3');
-      }, 1050);
+      }, 780);
       return () => clearTimeout(timer);
    }, []);
 
@@ -20,7 +27,7 @@ export default function BootClient() {
             ${!swapped ? 'bg-foreground' : 'bg-red-500'}`}
       >
          <h1
-            className={`text-9xl font-medium ${swapped ? 'text-foreground' : 'text-red-500'}`}
+            className={`text-9xl font-medium ${swapped ? 'text-foreground' : 'text-red-500'} ${montserrat.className}`}
          >
             <BouncyText text="Amen" />
          </h1>
