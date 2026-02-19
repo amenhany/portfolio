@@ -1,9 +1,9 @@
 'use client';
-import BouncyText from '@/components/boot/BouncyText';
+import BouncyText from './BouncyText';
 import { AudioManager } from '@/lib/AudioManager';
 import { useEffect, useState } from 'react';
 import { Outfit } from 'next/font/google';
-import { useTransition } from '../transitions/TransitionProvider';
+import { useTransition } from './TransitionProvider';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
 
