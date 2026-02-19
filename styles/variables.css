@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg-yellow: #facc15;
 }
 
 @theme inline {

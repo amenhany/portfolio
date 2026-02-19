@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
 import { Nunito } from 'next/font/google';
+import TransitionProvider from '@/components/transitions/TransitionProvider';
 
 export const metadata: Metadata = {
    title: 'Amen Hany',
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en" className={nunito.className}>
-         <body className={`antialiased`}>{children}</body>
+         <body className={`antialiased`}>
+            <TransitionProvider>{children}</TransitionProvider>
+         </body>
       </html>
    );
 }
