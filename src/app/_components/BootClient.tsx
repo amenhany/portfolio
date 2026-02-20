@@ -23,7 +23,6 @@ export default function BootClient() {
    useEffect(() => {
       const handleClick = () => {
          setStarted(true);
-         AudioManager.Instance().setSfxVolume(1);
          window.removeEventListener('pointerdown', handleClick);
       };
 

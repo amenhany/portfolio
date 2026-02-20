@@ -8,6 +8,11 @@ body {
   min-height: 100vh;
 }
 
+.vignette {
+  box-shadow: 0 0 80px rgba(0,0,0,0.2) inset;
+  transition: box-shadow 1s ease-in-out;
+}
+
 .wipe-root {
   position: fixed;
   inset: 0;

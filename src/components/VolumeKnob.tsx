@@ -80,7 +80,6 @@ export default function VolumeKnob() {
                      max="1"
                      step="0.01"
                      onChange={(e) => updateVolume(parseFloat(e.target.value))}
-                     className="backdrop"
                   />
                </motion.div>
             )}

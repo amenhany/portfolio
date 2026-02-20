@@ -1,0 +1,25 @@
+.dialogueBox {
+    border-radius: 22px;
+    width: 80%;
+    height: 300px;
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: oklch(98.5% 0.002 247.839);
+
+    box-shadow:
+        10px 10px 1px 0px rgba(0, 0, 0, 0.1),
+        0px 0px 1px 7px rgba(0, 0, 0, 0.1) inset;
+}
+
+.dialogueArrow {
+    margin-top: auto;
+    rotate: 180deg;
+
+    svg {
+        scale: 1.25 1;
+        color: rgb(180, 30, 85);
+        fill: rgb(225, 28, 61);
+    }
+}
