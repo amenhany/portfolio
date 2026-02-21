@@ -52,7 +52,7 @@ export default function DialogueBox({ prompt }: { prompt: dialoguePrompts }) {
             <>
                <Typewriter
                   text={dialogue[dialogueIndex]}
-                  className="text-2xl p-14"
+                  className="text-2xl p-14 font-normal"
                   speed={100}
                   onFinished={() => {
                      setTypewriterDone(true);

@@ -11,15 +11,29 @@ export default function VolumeKnob() {
    const [isMuted, setIsMuted] = useState(false);
    const inputRef = useRef<HTMLInputElement>(null);
 
-   function mute() {
+   useEffect(() => {
+      const muted = localStorage.getItem('muted');
+
+      const vol = localStorage.getItem('volume');
+      if (vol) updateVolume(parseFloat(vol));
+
+      if (muted == 'yes') toggleMute();
+   }, []);
+
+   function toggleMute() {
       AudioManager.Instance().setMasterVolume(isMuted ? volume : 0);
       setIsMuted((prev) => !prev);
+      localStorage.setItem('muted', isMuted ? 'no' : 'yes');
    }
 
    function updateVolume(value: number) {
       setVolume(value);
+      localStorage.setItem('volume', value.toString());
       AudioManager.Instance().setMasterVolume(value);
+
       setIsMuted(false);
+      localStorage.setItem('muted', 'no');
+
       if (inputRef.current) updateSliderFill(inputRef.current);
    }
 
@@ -50,7 +64,7 @@ export default function VolumeKnob() {
          onHoverEnd={() => setIsHovered(false)}
          className={styles.volumeKnob}
       >
-         <button className={styles.muteButton} onClick={mute}>
+         <button className={styles.muteButton} onClick={toggleMute}>
             {isMuted ? (
                <VolumeX size={30} />
             ) : volume < 0.03 ? (

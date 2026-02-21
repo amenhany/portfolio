@@ -5,7 +5,7 @@ export default function DiagonalWipe({ onDone }: { onDone: () => void }) {
    const common: MotionProps = {
       initial: { scale: 0 },
       animate: { scale: 3, x: '-5%', y: '-5%' },
-      transition: { duration: 2, ease: [1, 0.5, 0.8, 1] },
+      transition: { duration: 2, ease: [1.2, 0.6, 0.8, 1] },
    };
 
    return (
