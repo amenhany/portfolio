@@ -61,12 +61,16 @@ export default function DialogueBox({ prompt }: { prompt: dialoguePrompts }) {
                   skip={shouldSkip}
                />
 
-               {typewriterDone && (
+               {typewriterDone && dialogueIndex < dialogue.length - 1 && (
                   <motion.div
                      className={`${styles.dialogueArrow} absolute right-20 bottom-20`}
                      initial={{ y: 0 }}
                      animate={{ y: [0, -10, -10, 0] }}
-                     transition={{ repeat: Infinity, times: [0.3, 0.4, 0.1, 0.2] }}
+                     transition={{
+                        repeat: Infinity,
+                        times: [0.2, 0.45, 0.55, 0.95],
+                        duration: 1.5,
+                     }}
                   >
                      <Triangle />
                   </motion.div>

@@ -1,10 +1,11 @@
 'use client';
 
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { createContext, PropsWithChildren, useContext, useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import DiagonalWipe from './DiagonalWipe';
 
 const TransitionContext = createContext({
-   startTransition: (cb: () => void) => {},
+   startTransition: (href: string) => {},
 });
 
 export function useTransition() {
@@ -13,22 +14,30 @@ export function useTransition() {
 
 export default function TransitionProvider({ children }: PropsWithChildren) {
    const [isActive, setIsActive] = useState(false);
-   const [onComplete, setOnComplete] = useState<() => void>(() => () => {});
+   const [pendingPath, setPendingPath] = useState<string | null>(null);
 
-   const startTransition = (cb: () => void) => {
-      setOnComplete(() => cb);
+   const router = useRouter();
+   const pathname = usePathname();
+
+   const startTransition = (href: string) => {
+      setPendingPath(href);
       setIsActive(true);
    };
+
+   // When route actually changes, remove wipe
+   useEffect(() => {
+      if (pendingPath && pathname === pendingPath) {
+         setIsActive(false);
+         setPendingPath(null);
+      }
+   }, [pathname, pendingPath]);
 
    return (
       <TransitionContext.Provider value={{ startTransition }}>
          {children}
          {isActive && (
             <DiagonalWipe
-               onDone={async () => {
-                  setTimeout(() => setIsActive(false), 200);
-                  onComplete();
-               }}
+               onDone={pendingPath ? () => router.push(pendingPath) : () => {}}
             />
          )}
       </TransitionContext.Provider>
