@@ -1,6 +1,5 @@
-import Nav from '@/components/Nav';
-import DialogueBox from './_components/DialogueBox';
+import DialogueLoader from './_components/DialogueLoader';
 
 export default function Projects() {
-   return <DialogueBox prompt="welcome" />;
+   return <DialogueLoader />;
 }

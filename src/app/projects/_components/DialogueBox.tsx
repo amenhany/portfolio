@@ -1,25 +1,15 @@
 'use client';
 import { motion } from 'motion/react';
 import styles from './DialogueBox.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AudioManager } from '@/lib/AudioManager';
 import { Triangle } from 'lucide-react';
 import Typewriter from './Typewriter';
 
-export type dialoguePrompts = 'welcome';
-
-const DIALOGUE = {
-   welcome: [
-      'Hello! Hi!',
-      'Welcome to my Portfolio!',
-      'LLorem ipsum dolor sit amet consectetur adipisicing elit. Non impedit nisi, laborum pariatur praesentium eos numquam assumenda soluta neque in. Soluta libero adipisci facere corporis molestias delectus dignissimos et mollitia?m',
-   ],
-};
-
-export default function DialogueBox({ prompt }: { prompt: dialoguePrompts }) {
-   const dialogue = DIALOGUE[prompt];
+export default function DialogueBox({ dialogue }: { dialogue: string[] }) {
    const [dialogueIndex, setDialogueIndex] = useState(0);
    const [dialogueBoxOpen, setDialogueBoxOpen] = useState(false);
+
    const [typewriterDone, setTypewriterDone] = useState(false);
    const [shouldSkip, setShouldSkip] = useState(false);
 
@@ -39,20 +29,25 @@ export default function DialogueBox({ prompt }: { prompt: dialoguePrompts }) {
       });
    }
 
+   useEffect(() => {
+      setDialogueIndex(0);
+   }, [dialogue]);
+
    return (
       <motion.div
          className={`${styles.dialogueBox} p-1`}
          initial={{ width: 0, maxHeight: 0 }}
          animate={{ width: [0, 0, '80%'], maxHeight: [0, '100%', '100%'] }}
-         transition={{ delay: 0.5, times: [0, 0.2, 0.8] }}
+         exit={{ width: ['80%', 0, 0], maxHeight: ['100%', '100%', 0] }}
+         transition={{ delay: 0.5, times: [0, 0.5, 1] }}
          onClick={advanceDialogue}
          onAnimationComplete={() => setTimeout(() => setDialogueBoxOpen(true), 500)}
       >
-         {dialogueBoxOpen && (
+         {dialogueBoxOpen && dialogue[dialogueIndex]?.length && (
             <>
                <Typewriter
                   text={dialogue[dialogueIndex]}
-                  className="text-2xl p-14 font-normal"
+                  className="text-2xl p-14 font-normal pointer-events-none"
                   speed={100}
                   onFinished={() => {
                      setTypewriterDone(true);

@@ -26,7 +26,7 @@ export default function TransitionProvider({ children }: PropsWithChildren) {
 
    // When route actually changes, remove wipe
    useEffect(() => {
-      if (pendingPath && pathname === pendingPath) {
+      if (pendingPath && pathname === pendingPath.split('?')[0]) {
          setIsActive(false);
          setPendingPath(null);
       }
