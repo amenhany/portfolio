@@ -40,7 +40,7 @@ export default function BootClient() {
          setSwapped(true);
          AudioManager.Instance().playSfx('/audio/boot.mp3');
          router.prefetch('/projects');
-         startTransition('/projects?dialogue=welcome');
+         startTransition('/projects?dialogue=welcome&dialogue=about');
       }, 780);
 
       return () => clearTimeout(timer);

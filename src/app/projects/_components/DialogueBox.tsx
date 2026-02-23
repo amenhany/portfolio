@@ -1,19 +1,26 @@
 'use client';
 import { motion } from 'motion/react';
 import styles from './DialogueBox.module.scss';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AudioManager } from '@/lib/AudioManager';
 import { Triangle } from 'lucide-react';
 import Typewriter from './Typewriter';
+import type { DialoguePart } from '@/types/dialogue';
+import { tokenize } from '@/lib/tokenize';
 
-export default function DialogueBox({ dialogue }: { dialogue: string[] }) {
+export default function DialogueBox({ dialogue }: { dialogue: DialoguePart[][] }) {
    const [dialogueIndex, setDialogueIndex] = useState(0);
    const [dialogueBoxOpen, setDialogueBoxOpen] = useState(false);
 
    const [typewriterDone, setTypewriterDone] = useState(false);
    const [shouldSkip, setShouldSkip] = useState(false);
 
-   function advanceDialogue() {
+   const tokens = useMemo(
+      () => tokenize(dialogue[dialogueIndex]),
+      [dialogueIndex, dialogue],
+   );
+
+   const advanceDialogue = useCallback(() => {
       if (!typewriterDone) {
          setShouldSkip(true);
          AudioManager.Instance().playSfx('/audio/next_dialogue.wav');
@@ -22,12 +29,16 @@ export default function DialogueBox({ dialogue }: { dialogue: string[] }) {
 
       setDialogueIndex((prev) => {
          if (prev >= dialogue.length - 1) return prev;
-
          setTypewriterDone(false);
          AudioManager.Instance().playSfx('/audio/next_dialogue.wav');
          return prev + 1;
       });
-   }
+   }, [typewriterDone, dialogue.length]);
+
+   const handleFinished = useCallback(() => {
+      setTypewriterDone(true);
+      setShouldSkip(false);
+   }, []);
 
    useEffect(() => {
       setDialogueIndex(0);
@@ -43,16 +54,13 @@ export default function DialogueBox({ dialogue }: { dialogue: string[] }) {
          onClick={advanceDialogue}
          onAnimationComplete={() => setTimeout(() => setDialogueBoxOpen(true), 500)}
       >
-         {dialogueBoxOpen && dialogue[dialogueIndex]?.length && (
+         {dialogueBoxOpen && (
             <>
                <Typewriter
-                  text={dialogue[dialogueIndex]}
-                  className="text-2xl p-14 font-normal pointer-events-none"
+                  tokens={tokens}
+                  className="text-2xl p-14 font-normal"
                   speed={100}
-                  onFinished={() => {
-                     setTypewriterDone(true);
-                     setShouldSkip(false);
-                  }}
+                  onFinished={handleFinished}
                   skip={shouldSkip}
                />
 

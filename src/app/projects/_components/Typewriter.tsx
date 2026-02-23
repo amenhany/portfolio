@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
    motion,
    useMotionValue,
@@ -8,9 +8,10 @@ import {
    AnimationPlaybackControlsWithThen,
 } from 'motion/react';
 import { AudioManager } from '@/lib/AudioManager';
+import { Token } from '@/types/dialogue';
 
 type TypewriterProps = {
-   text: string;
+   tokens: Token[];
    speed?: number;
    delay?: number;
    onFinished?: () => void;
@@ -18,7 +19,7 @@ type TypewriterProps = {
 } & React.ComponentPropsWithoutRef<'p'>;
 
 export default function Typewriter({
-   text,
+   tokens,
    speed = 0.1,
    delay = 0,
    onFinished = () => {},
@@ -27,11 +28,17 @@ export default function Typewriter({
 }: TypewriterProps) {
    const count = useMotionValue(0);
    const rounded = useTransform(count, (v) => Math.round(v));
-   const displayText = useTransform(rounded, (latest) => text.slice(0, latest));
 
    // store animation controls so we can stop/jump
    const controlsRef = useRef<AnimationPlaybackControlsWithThen | null>(null);
    const intervalRef = useRef<NodeJS.Timeout>(null);
+
+   const [latestCount, setLatestCount] = useState(0);
+
+   useEffect(() => {
+      const unsubscribe = rounded.on('change', (v) => setLatestCount(v));
+      return unsubscribe;
+   }, [rounded]);
 
    useEffect(() => {
       if (intervalRef.current !== null) {
@@ -44,9 +51,9 @@ export default function Typewriter({
       );
 
       count.set(0);
-      const anim = animate(count, text.length, {
+      const anim = animate(count, tokens.length, {
          type: 'tween',
-         duration: text.length / speed,
+         duration: tokens.length / speed,
          delay,
          ease: 'linear',
          onComplete: () => {
@@ -60,20 +67,22 @@ export default function Typewriter({
          anim.stop();
          if (intervalRef.current) clearInterval(intervalRef.current);
       };
-   }, [text, speed, delay]);
+   }, [tokens, speed, delay, onFinished]);
 
    useEffect(() => {
       if (skip && controlsRef.current) {
          controlsRef.current.stop();
-         count.set(text.length);
+         count.set(tokens.length);
          onFinished();
          if (intervalRef.current) clearInterval(intervalRef.current);
       }
-   }, [skip, text, onFinished]);
+   }, [skip, tokens, onFinished]);
 
    return (
       <p {...props}>
-         <motion.span>{displayText}</motion.span>
+         {tokens.slice(0, latestCount).map((t, i) => (
+            <React.Fragment key={i}>{t.node(t.char)}</React.Fragment>
+         ))}
       </p>
    );
 }

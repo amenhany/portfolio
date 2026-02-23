@@ -1,5 +1,13 @@
 [
-    "Hello! Hi!",
-    "Welcome to my Portfolio!",
-    "LLorem ipsum dolor sit amet consectetur adipisicing elit. Non impedit nisi, laborum pariatur praesentium eos numquam assumenda soluta neque in. Soluta libero adipisci facere corporis molestias delectus dignissimos et mollitia?m"
+    [{ "text": "Hello! Hi!" }],
+    [
+        { "text": "Welcome to my " },
+        { "text": "Portfolio", "highlight": true },
+        { "text": "!" }
+    ],
+    [
+        {
+            "text": "LLorem ipsum dolor sit amet consectetur adipisicing elit. Non impedit nisi, laborum pariatur praesentium eos numquam assumenda soluta neque in. Soluta libero adipisci facere corporis molestias delectus dignissimos et mollitia?m"
+        }
+    ]
 ]

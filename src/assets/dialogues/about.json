@@ -1,1 +1,9 @@
-["Lol", "Lol2"]
+[
+    [{ "text": "I am Amen Hany. Computer Engineer, Game Developer, and Web Developer" }],
+    [{ "text": "so far." }],
+    [
+        { "text": "Learning new skills makes me feel " },
+        { "text": "invincible", "link": "invincible" },
+        { "text": "." }
+    ]
+]
