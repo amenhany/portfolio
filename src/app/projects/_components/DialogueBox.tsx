@@ -8,12 +8,19 @@ import Typewriter from './Typewriter';
 import type { DialoguePart } from '@/types/dialogue';
 import { tokenize } from '@/lib/tokenize';
 
-export default function DialogueBox({ dialogue }: { dialogue: DialoguePart[][] }) {
+export default function DialogueBox({
+   dialogue,
+   onDone,
+}: {
+   dialogue: DialoguePart[][];
+   onDone: () => void;
+}) {
    const [dialogueIndex, setDialogueIndex] = useState(0);
    const [dialogueBoxOpen, setDialogueBoxOpen] = useState(false);
 
    const [typewriterDone, setTypewriterDone] = useState(false);
    const [shouldSkip, setShouldSkip] = useState(false);
+   const [dialogueDone, setDialogueDone] = useState(false);
 
    const tokens = useMemo(
       () => tokenize(dialogue[dialogueIndex]),
@@ -43,6 +50,13 @@ export default function DialogueBox({ dialogue }: { dialogue: DialoguePart[][] }
    useEffect(() => {
       setDialogueIndex(0);
    }, [dialogue]);
+
+   useEffect(() => {
+      if (dialogueIndex >= dialogue.length - 1 && !dialogueDone && typewriterDone) {
+         onDone();
+         setDialogueDone(true);
+      }
+   }, [dialogueIndex, dialogue, onDone, typewriterDone]);
 
    return (
       <motion.div

@@ -1,11 +1,5 @@
-import DialogueLoader from './_components/DialogueLoader';
-import Secrets from './_components/Secrets';
+import ProjectsClient from './_components/ProjectsClient';
 
 export default function Projects() {
-   return (
-      <>
-         <DialogueLoader />
-         <Secrets />
-      </>
-   );
+   return <ProjectsClient />;
 }

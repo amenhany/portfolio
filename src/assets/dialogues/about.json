@@ -1,9 +1,16 @@
 [
     [{ "text": "I am Amen Hany. Computer Engineer, Game Developer, and Web Developer" }],
-    [{ "text": "so far." }],
+    [{ "text": "A computer enthusiast, system designer, ehh... You get the point." }],
     [
-        { "text": "Learning new skills makes me feel " },
+        {
+            "text": "I love exploring new things, always. And have loved computers for forever. The ability to create my own programs to do what I want makes me feel "
+        },
         { "text": "invincible", "link": "invincible" },
         { "text": "." }
+    ],
+    [
+        {
+            "text": "Anyways, I won't keep you for longer. You can view my projects in the carousel displayed above!"
+        }
     ]
 ]

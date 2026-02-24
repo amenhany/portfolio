@@ -46,7 +46,7 @@ export default function InvincibleSecret() {
       img2.src = '/images/title-card-subtitle.png';
 
       // play sound
-      AudioManager.Instance().playMusic('/audio/invincible.wav', false, resetSecret);
+      AudioManager.Instance().playMusic('/audio/invincible.wav', resetSecret);
 
       // add escape option
       const handleKey = (e: KeyboardEvent) => {

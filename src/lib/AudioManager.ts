@@ -5,7 +5,6 @@ export class AudioManager {
     private musicGain: GainNode;
     private sfxGain: GainNode;
     private currentMusic?: AudioBufferSourceNode;
-    private currentStatic?: AudioBufferSourceNode;
     private cache = new Map<string, AudioBuffer>();
 
     private currentPlayId = 0;
@@ -53,27 +52,13 @@ export class AudioManager {
         this.playSfx(urls[Math.floor(Math.random() * urls.length)]);
     }
 
-    async playStatic(url: string, loop = true, callback?: () => void) {
-        if (this.currentStatic) {
-            this.currentStatic.stop();
-        }
-
-        const buffer = await this.load(url);
-        const source = this.ctx.createBufferSource();
-        source.buffer = buffer;
-        source.loop = loop;
-        source.start(0);
-
-        this.currentStatic = source;
-        if (callback) {
-            source.onended = () => {
-                if (this.currentStatic === source) callback();
-            };
-        }
-        return source;
-    }
-
-    async playMusic(url: string, loop = false, callback?: () => void) {
+    async playMusic(
+        url: string,
+        callback?: () => void,
+        loop = false,
+        loopStart = 0,
+        loopEnd?: number,
+    ) {
         const playId = ++this.currentPlayId;
 
         if (this.currentMusic) {
@@ -87,6 +72,8 @@ export class AudioManager {
         source.buffer = buffer;
         source.connect(this.musicGain);
         source.loop = loop;
+        source.loopStart = loopStart;
+        if (loopEnd) source.loopEnd = loopEnd;
         source.start(0);
 
         this.currentMusic = source;
@@ -101,7 +88,7 @@ export class AudioManager {
     async playPlaylist(playlist: string[], idx = 0) {
         let random = Math.floor(Math.random() * playlist.length);
         while (random === idx) random = Math.floor(Math.random() * playlist.length);
-        this.playMusic(playlist[idx], false, () =>
+        this.playMusic(playlist[idx], () =>
             setTimeout(
                 () => this.playPlaylist(playlist, random),
                 4000 + Math.floor(Math.random() * 3000),
