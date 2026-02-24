@@ -21,7 +21,7 @@ export default function QueryLink({
    };
 
    return (
-      <span onClick={handleClick} className="text-blue-500 cursor-pointer">
+      <span onClick={handleClick} className="text-blue-500">
          {children}
       </span>
    );

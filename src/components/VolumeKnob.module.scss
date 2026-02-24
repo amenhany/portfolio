@@ -6,7 +6,7 @@
     .muteButton {
         background: none;
         border: none;
-        cursor: pointer;
+        // cursor: pointer;
         color: white;
         padding: 0.5rem;
 
@@ -40,7 +40,7 @@
                 height: 0px;
                 border-radius: 50%;
                 background: white;
-                cursor: pointer;
+                // cursor: pointer;
             }
 
             &::-moz-range-thumb {
@@ -48,7 +48,7 @@
                 height: 12px;
                 border-radius: 50%;
                 background: white;
-                cursor: pointer;
+                // cursor: pointer;
             }
 
             &::-moz-range-track {

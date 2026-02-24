@@ -2,6 +2,11 @@
 @import "./variables.css";
 @source inline("text-green-500");
 
+html, body, * {
+  /* cursor: url("/cursors/wii-pointer.cur") 0 0, auto; */
+  cursor: none !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

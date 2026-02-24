@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '../styles/globals.css';
 import { Nunito } from 'next/font/google';
 import TransitionProvider from './_components/TransitionProvider';
+import WiiCursor from '@/components/WiiCursor';
 
 export const metadata: Metadata = {
    title: 'Amen Hany',
@@ -23,6 +24,7 @@ export default function RootLayout({
       <html lang="en" className={nunito.className}>
          <body className={`antialiased`}>
             <TransitionProvider>{children}</TransitionProvider>
+            <WiiCursor />
          </body>
       </html>
    );
