@@ -15,9 +15,12 @@ export function tokenize(parts: DialoguePart[]) {
                   </QueryLink>
                );
             }
-            if (part.highlight) {
+            if (part.color) {
                return (
-                  <span key={Math.random()} className="text-blue-500 pointer-events-none">
+                  <span
+                     key={Math.random()}
+                     className={`text-${part.color} pointer-events-none`}
+                  >
                      {c}
                   </span>
                );

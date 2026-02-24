@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type DialoguePart = {
     text: string;
-    highlight?: boolean;
+    color?: string;
     link?: string;
 };
 

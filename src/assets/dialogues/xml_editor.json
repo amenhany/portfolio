@@ -1,0 +1,33 @@
+[
+    [
+        { "text": "This is an XML Editor/Manipulator written in " },
+        { "text": "C++", "color": "blue-500" },
+        { "text": ", and the GUI was made with " },
+        { "text": "Qt", "color": "green-500" },
+        { "text": "." }
+    ],
+    [
+        {
+            "text": "The idea itself might not be super original, and it was made for our "
+        },
+        { "text": "Data Structures", "color": "blue-500" },
+        {
+            "text": " college course, but I think the real beauty of this project stems from the project structure."
+        }
+    ],
+    [
+        {
+            "text": "I spent a great deal of effort researching the best practices for C++ projects to make the most modular design and structure possible, especially since the project was implemented in phases so I needed to account for future extensions."
+        }
+    ],
+    [
+        {
+            "text": "This is also a team project, and I was the leader of the 8 other computer engineers with me in the group."
+        }
+    ],
+    [
+        {
+            "text": "Aside from the project structure and design, I was also responsible for assigning roles, giving an outline of the implementation for each function, troubleshooting and debugging any problems encountered by my team."
+        }
+    ]
+]

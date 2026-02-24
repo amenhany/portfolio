@@ -46,7 +46,7 @@ export default function DialogueBox({ dialogue }: { dialogue: DialoguePart[][] }
 
    return (
       <motion.div
-         className={`${styles.dialogueBox} p-1`}
+         className={`${styles.dialogueBox} p-1 select-none`}
          initial={{ width: 0, maxHeight: 0 }}
          animate={{ width: [0, 0, '80%'], maxHeight: [0, '100%', '100%'] }}
          exit={{ width: ['80%', 0, 0], maxHeight: ['100%', '100%', 0] }}

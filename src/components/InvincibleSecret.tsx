@@ -12,13 +12,13 @@ const outfitFont = Outfit({
 });
 
 const colors = [
-   { text: 'Because', background: '#487ABF', foreground: '#000', duration: 0.4 },
-   { text: 'Sometimes', background: '#444A4A', foreground: '#568BA4', duration: 1.1 },
+   { text: 'Because', background: '#487ABF', foreground: '#000', duration: 0.37 },
+   { text: 'Sometimes', background: '#444A4A', foreground: '#568BA4', duration: 1.13 },
    { text: 'To', background: '#8BF44B', foreground: '#C5FDA2', duration: 0.2 },
    { text: 'Change', background: '#FFDC5E', foreground: '#3E74A9', duration: 0.5 },
    { text: 'The', background: '#9299A1', foreground: '#E1E1DF', duration: 0.2 },
    { text: 'Entire', background: '#417DAF', foreground: '#FEDA5C', duration: 0.6 },
-   { text: 'Universe', background: '#CAE3E7', foreground: '#C84626', duration: 1.1 },
+   { text: 'Universe', background: '#CAE3E7', foreground: '#C84626', duration: 1.15 },
    { text: 'You', background: '#FEE25B', foreground: '#313234', duration: 0.5 },
    { text: 'Have', background: '#EB6554', foreground: '#C8E4E4', duration: 0.4 },
    { text: 'To', background: '#D1D1D1', foreground: '#88949E', duration: 0.2 },
@@ -73,7 +73,12 @@ export default function InvincibleSecret() {
 
    return (
       <>
-         <div className="fixed inset-0 z-40 min-h-screen">
+         <motion.div
+            className="fixed inset-0 z-40 min-h-screen"
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.15 }}
+            transition={{ delay: 6.1, duration: 14, ease: 'easeOut' }}
+         >
             <img
                src="/images/title-card-subtitle.png"
                alt="Title Card"
@@ -81,13 +86,13 @@ export default function InvincibleSecret() {
             />
             <motion.img
                src="/images/title-card.png"
-               alt="Title Card"
                className="absolute size-full object-cover"
-               initial={{ opacity: 1 }}
-               animate={{ opacity: 0 }}
-               transition={{ delay: 8.3, duration: 0.15 }}
+               style={{ clipPath: 'inset(0 0 0 0)' }}
+               initial={{ clipPath: 'inset(0 0 0 0)' }}
+               animate={{ clipPath: 'inset(0 100% 0 0)' }}
+               transition={{ duration: 0.2, ease: 'easeIn', delay: 8.15 }}
             />
-         </div>
+         </motion.div>
          {current && (
             <motion.div
                key={index}

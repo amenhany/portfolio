@@ -2,7 +2,7 @@
     [{ "text": "Hello! Hi!" }],
     [
         { "text": "Welcome to my " },
-        { "text": "Portfolio", "highlight": true },
+        { "text": "Portfolio", "color": "blue-500" },
         { "text": "!" }
     ],
     [
