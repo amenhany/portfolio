@@ -63,7 +63,12 @@ export default function DialogueBox({
          className={`${styles.dialogueBox} h-[250px] md:h-[300px] p-1 select-none z-20`}
          initial={{ width: 0, maxHeight: 0 }}
          animate={{ width: [0, 0, '80%'], maxHeight: [0, '100%', '100%'] }}
-         exit={{ width: ['80%', 0, 0], maxHeight: ['100%', '100%', 0] }}
+         exit={{
+            width: ['80%', 0, 0],
+            maxHeight: ['100%', '100%', 0],
+            overflow: 'hidden',
+            textWrap: 'nowrap',
+         }}
          transition={{ delay: 0.5, times: [0, 0.5, 1] }}
          onClick={advanceDialogue}
          onAnimationComplete={() => setTimeout(() => setDialogueBoxOpen(true), 500)}
