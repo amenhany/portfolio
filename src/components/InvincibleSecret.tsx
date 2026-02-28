@@ -1,9 +1,9 @@
 'use client';
 import { Outfit } from 'next/font/google';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { AudioManager } from '@/lib/AudioManager';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { useQueryParams } from '@/hooks/useQueryParams';
 
 const outfitFont = Outfit({
    subsets: ['latin'],
@@ -26,15 +26,11 @@ const colors = [
 ];
 
 export default function InvincibleSecret({ onDone }: { onDone?: () => void }) {
-   const searchParams = useSearchParams();
-   const pathname = usePathname();
-   const router = useRouter();
+   const { setParam } = useQueryParams();
    const [index, setIndex] = useState(0);
 
    function resetSecret() {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set('secret', '');
-      router.push(`${pathname}?${params.toString()}`);
+      setParam('secret', null);
       onDone?.();
    }
 

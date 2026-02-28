@@ -1,4 +1,4 @@
-import QueryLink from '@/components/QueryLink';
+import SecretLink from '@/components/SecretLink';
 import { DialoguePart, Token } from '@/types/dialogue';
 
 export function tokenize(parts: DialoguePart[]) {
@@ -10,9 +10,9 @@ export function tokenize(parts: DialoguePart[]) {
          const makeNode = (c: string) => {
             if (part.link) {
                return (
-                  <QueryLink key={Math.random()} queryKey={part.link}>
+                  <SecretLink key={Math.random()} secret={part.link}>
                      {c}
-                  </QueryLink>
+                  </SecretLink>
                );
             }
             if (part.color) {
