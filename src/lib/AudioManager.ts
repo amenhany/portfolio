@@ -55,6 +55,7 @@ export class AudioManager {
     async playMusic(
         url: string,
         callback?: () => void,
+        delay?: number,
         loop = false,
         loopStart = 0,
         loopEnd?: number,
@@ -74,7 +75,7 @@ export class AudioManager {
         source.loop = loop;
         source.loopStart = loopStart;
         if (loopEnd) source.loopEnd = loopEnd;
-        source.start(0);
+        source.start(delay ? this.ctx.currentTime + delay : 0);
 
         this.currentMusic = source;
         source.onended = () => {

@@ -25,7 +25,7 @@ const colors = [
    { text: 'Be', background: '#4C4E57', foreground: '#FBE553', duration: 0.8 },
 ];
 
-export default function InvincibleSecret() {
+export default function InvincibleSecret({ onDone }: { onDone?: () => void }) {
    const searchParams = useSearchParams();
    const pathname = usePathname();
    const router = useRouter();
@@ -35,6 +35,7 @@ export default function InvincibleSecret() {
       const params = new URLSearchParams(searchParams.toString());
       params.set('secret', '');
       router.push(`${pathname}?${params.toString()}`);
+      onDone?.();
    }
 
    useEffect(() => {
@@ -74,7 +75,7 @@ export default function InvincibleSecret() {
    return (
       <>
          <motion.div
-            className="fixed inset-0 z-40 min-h-screen"
+            className="fixed inset-0 z-60 min-h-screen"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
             transition={{ delay: 6.1, duration: 14, ease: 'easeOut' }}
@@ -96,7 +97,7 @@ export default function InvincibleSecret() {
          {current && (
             <motion.div
                key={index}
-               className="fixed inset-0 z-50 flex justify-center items-center min-h-screen"
+               className="fixed inset-0 z-70 flex justify-center items-center min-h-screen"
                style={{ backgroundColor: current.background }}
                initial={false}
                animate={{}}
