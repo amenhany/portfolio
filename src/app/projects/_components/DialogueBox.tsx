@@ -60,7 +60,7 @@ export default function DialogueBox({
 
    return (
       <motion.div
-         className={`${styles.dialogueBox} p-1 select-none`}
+         className={`${styles.dialogueBox} h-[250px] md:h-[300px] p-1 select-none z-20`}
          initial={{ width: 0, maxHeight: 0 }}
          animate={{ width: [0, 0, '80%'], maxHeight: [0, '100%', '100%'] }}
          exit={{ width: ['80%', 0, 0], maxHeight: ['100%', '100%', 0] }}
@@ -72,7 +72,7 @@ export default function DialogueBox({
             <>
                <Typewriter
                   tokens={tokens}
-                  className="text-2xl p-14 font-normal"
+                  className="text-lg md:text-2xl lg:p-14 p-10 font-normal"
                   speed={100}
                   onFinished={handleFinished}
                   skip={shouldSkip}
@@ -80,7 +80,7 @@ export default function DialogueBox({
 
                {typewriterDone && dialogueIndex < dialogue.length - 1 && (
                   <motion.div
-                     className={`${styles.dialogueArrow} absolute right-20 bottom-20`}
+                     className={`${styles.dialogueArrow} red-arrow absolute right-20 bottom-20`}
                      initial={{ y: 0 }}
                      animate={{ y: [0, -10, -10, 0] }}
                      transition={{

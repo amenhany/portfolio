@@ -14,6 +14,12 @@ body {
   min-height: 100vh;
 }
 
+.red-arrow svg {
+  scale: 1.25 1;
+  color: rgb(180, 30, 85);
+  fill: rgb(225, 28, 61);
+}
+
 .vignette {
   box-shadow: 0 0 80px rgba(0,0,0,0.2) inset;
   transition: box-shadow 1s ease-in-out;
