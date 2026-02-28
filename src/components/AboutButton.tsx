@@ -7,10 +7,10 @@ export default function AboutButton({
    dialogue,
    ...props
 }: { dialogue: string } & ButtonHTMLAttributes<HTMLButtonElement>) {
-   const { appendParam } = useQueryParams();
+   const { setParam } = useQueryParams();
 
    return (
-      <button {...props} onClick={() => appendParam('dialogue', dialogue)}>
+      <button {...props} onClick={() => setParam('dialogue', dialogue)}>
          <CircleQuestionMark size={30} color="white" className="drop-shadow" />
       </button>
    );
