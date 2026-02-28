@@ -6,11 +6,7 @@ export default function Nav() {
    return (
       <nav className="fixed top-0 right-0 p-2 z-10 flex gap-3">
          <DialogueChanger dialogue="about">
-            <CircleQuestionMark
-               size={30}
-               color="white"
-               style={{ filter: 'drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2))' }}
-            />
+            <CircleQuestionMark size={30} color="white" className="drop-shadow" />
          </DialogueChanger>
          <VolumeKnob />
       </nav>

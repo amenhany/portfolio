@@ -64,7 +64,7 @@ export default function VolumeKnob() {
          onHoverEnd={() => setIsHovered(false)}
          className={styles.volumeKnob}
       >
-         <button className={styles.muteButton} onClick={toggleMute}>
+         <button className={`${styles.muteButton} drop-shadow`} onClick={toggleMute}>
             {isMuted ? (
                <VolumeX size={30} />
             ) : volume < 0.03 ? (
