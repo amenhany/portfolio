@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { ReactNode } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 export default function QueryLink({
    queryKey,
@@ -14,7 +14,8 @@ export default function QueryLink({
    const pathname = usePathname();
    const searchParams = useSearchParams();
 
-   const handleClick = () => {
+   const handleClick: MouseEventHandler<HTMLSpanElement> = (evt) => {
+      evt.stopPropagation();
       const params = new URLSearchParams(searchParams.toString());
       params.set('secret', queryKey);
       router.push(`${pathname}?${params.toString()}`);
