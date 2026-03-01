@@ -31,7 +31,7 @@
 }
 
 .starGradientOverlay {
-    background: radial-gradient(circle, transparent 75%, rgb(var(--dark-gold-rgb)));
+    background: radial-gradient(circle, transparent 75%, hsl(48, 96%, 43%));
     position: absolute;
     left: 0px;
     top: 0px;

@@ -27,6 +27,7 @@ export default function BootClient() {
    }, []);
 
    useEffect(() => {
+      AudioManager.Instance().load('/audio/boot.mp3');
       if (!started) return;
 
       const timer = setTimeout(() => {
