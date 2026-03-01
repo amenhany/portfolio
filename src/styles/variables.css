@@ -10,4 +10,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-nintendo-yellow: #facc15;
+
+  --font-default: var(--font-default);
+  --font-title: var(--font-title);
 }

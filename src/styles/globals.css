@@ -12,6 +12,11 @@ body {
   color: var(--foreground);
   font-weight: 300;
   min-height: 100vh;
+  font-family: var(--font-default);
+}
+
+.title {
+  @apply text-9xl font-title;
 }
 
 .red-arrow svg {

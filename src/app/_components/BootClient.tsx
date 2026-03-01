@@ -2,16 +2,9 @@
 import BouncyText from './BouncyText';
 import { AudioManager } from '@/lib/AudioManager';
 import { useEffect, useState } from 'react';
-import { Outfit } from 'next/font/google';
 import { useTransition } from './TransitionProvider';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
-
-const outfitFont = Outfit({
-   subsets: ['latin'],
-   weight: ['500'],
-   display: 'swap',
-});
 
 export default function BootClient() {
    const [swapped, setSwapped] = useState(false);
@@ -52,7 +45,7 @@ export default function BootClient() {
             ${!swapped ? 'bg-foreground' : 'bg-red-500'}`}
       >
          <h1
-            className={`text-9xl font-medium ${swapped ? 'text-foreground' : 'text-red-500'} ${outfitFont.className}`}
+            className={`title font-medium ${swapped ? 'text-foreground' : 'text-red-500'}`}
          >
             <BouncyText started={started} />
          </h1>

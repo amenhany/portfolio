@@ -1,15 +1,8 @@
 'use client';
-import { Outfit } from 'next/font/google';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { AudioManager } from '@/lib/AudioManager';
 import { useQueryParams } from '@/hooks/useQueryParams';
-
-const outfitFont = Outfit({
-   subsets: ['latin'],
-   weight: ['500'],
-   display: 'swap',
-});
 
 const colors = [
    { text: 'Because', background: '#487ABF', foreground: '#000', duration: 0.37 },
@@ -99,7 +92,7 @@ export default function InvincibleSecret({ onDone }: { onDone?: () => void }) {
                animate={{}}
             >
                <h1
-                  className={`text-9xl font-bold uppercase ${outfitFont.className}`}
+                  className="title font-bold uppercase"
                   style={{ color: current.foreground }}
                >
                   {current.text}

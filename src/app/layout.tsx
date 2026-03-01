@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
-import { Nunito } from 'next/font/google';
 import TransitionProvider from './_components/TransitionProvider';
 import WiiCursor from '@/components/WiiCursor';
+import { defaultFont, titleFont } from './fonts';
 
 export const metadata: Metadata = {
    title: 'Amen Hany',
    description: "Amen Hany's Portfolio",
 };
-
-const nunito = Nunito({
-   subsets: ['latin'],
-   weight: ['200', '300', '400', '500'],
-   display: 'swap',
-});
 
 export default function RootLayout({
    children,
@@ -21,7 +15,7 @@ export default function RootLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <html lang="en" className={nunito.className}>
+      <html lang="en" className={`${defaultFont.variable} ${titleFont.variable}`}>
          <body className={`antialiased`}>
             <TransitionProvider>{children}</TransitionProvider>
             <WiiCursor />
