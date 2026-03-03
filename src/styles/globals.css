@@ -2,6 +2,13 @@
 @import "./variables.css";
 @source inline("text-green-500");
 
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+    text-shadow: 0px 0px 0px black, 0px 4px 0px black;
+  }
+}
+
 html, body, * {
   /* cursor: url("/cursors/wii-pointer.cur") 0 0, auto; */
   cursor: none !important;
@@ -13,6 +20,10 @@ body {
   font-weight: 300;
   min-height: 100vh;
   font-family: var(--font-default);
+}
+
+.shadow-text {
+  text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.1);
 }
 
 .title {

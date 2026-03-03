@@ -1,5 +1,5 @@
 'use client';
-import { motion, MotionProps } from 'motion/react';
+import { motion } from 'motion/react';
 import styles from './StarBackground.module.css';
 
 export default function StarBackground() {

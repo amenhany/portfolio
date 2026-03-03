@@ -34,7 +34,7 @@ export default function BootClient() {
          setSwapped(true);
          AudioManager.Instance().playSfx('/audio/boot.mp3');
          router.prefetch('/projects');
-         startTransition('/projects?dialogue=welcome&dialogue=about');
+         startTransition('/projects?dialogue=welcome&dialogue=about&dialogue=separator');
       }, 780);
 
       return () => clearTimeout(timer);
