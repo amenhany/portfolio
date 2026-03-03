@@ -68,7 +68,7 @@ export default function ProjectsClient() {
                     }
             }
          />
-         <Secrets cleanUp={playBGM} />
+         <Secrets cleanUp={showProjects ? playBGM : () => {}} />
       </>
    );
 }
