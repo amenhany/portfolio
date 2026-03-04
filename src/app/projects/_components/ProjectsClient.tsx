@@ -2,7 +2,7 @@
 import { AudioManager } from '@/lib/AudioManager';
 import DialogueLoader from './dialogue/DialogueLoader';
 import Secrets from './Secrets';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProjectCarousel from './ProjectCarousel';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { PROJECTS as projects } from '@/data/projects';
