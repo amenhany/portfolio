@@ -21,7 +21,10 @@ export default function ProjectsClient() {
 
          setIndex(idx);
          loadProjects();
-      } else loadProjects();
+      } else {
+         loadProjects();
+         updateProjects(0);
+      }
    }, []);
 
    // Not using this because it overrides extra dialogue when loading a URL
@@ -54,7 +57,7 @@ export default function ProjectsClient() {
       <>
          {showProjects && (
             <section className="relative">
-               <ProjectTitle index={index} />
+               <ProjectTitle project={projects[index]} />
                <ProjectCarousel index={index} setIndex={updateProjects} />
             </section>
          )}

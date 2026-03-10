@@ -64,6 +64,7 @@ const ProjectCard = ({
    const isFirstRender = useRef(true);
    const [hasClicked, setHasClicked] = useState(false);
    const [echo, setEcho] = useState<boolean>(false);
+   const router = useRouter();
    let offset = itemIndex - currentIndex;
    if (offset > projects.length / 2) offset -= projects.length;
    if (offset < -projects.length / 2) offset += projects.length;
@@ -114,6 +115,8 @@ const ProjectCard = ({
    const handleClick = () => {
       if (offset !== 0) return;
       setEcho(true);
+
+      router.prefetch(`/projects/${name}`);
 
       AudioManager.Instance().playSfx('/audio/click.wav');
       AudioManager.Instance().stopMusic();

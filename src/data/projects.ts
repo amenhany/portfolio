@@ -8,3 +8,9 @@ export const PROJECTS = [
 ] as const;
 
 export type Project = (typeof PROJECTS)[number];
+
+export type ProjectInfo = {
+    text: string;
+    stack: string[];
+    src: string;
+};

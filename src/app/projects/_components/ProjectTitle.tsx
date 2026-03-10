@@ -1,4 +1,4 @@
-import { Project, PROJECTS } from '@/data/projects';
+import { type Project } from '@/data/projects';
 import { NextFont } from 'next/dist/compiled/@next/font';
 import { cluedoFont, marioFont, tvListFont } from '../fonts';
 import { type ReactNode } from 'react';
@@ -17,12 +17,12 @@ const TITLES: Record<Project, ReactNode> = {
    mario: <MarioTitle />,
 };
 
-export default function ProjectTitle({ index }: { index: number }) {
+export default function ProjectTitle({ project }: { project: Project }) {
    return (
       <h1
-         className={`${FONTS[PROJECTS[index]].className} relative z-30 h-10 text-5xl text-center mt-12 shadow-text text-white font-bold`}
+         className={`${FONTS[project].className} relative z-30 h-10 text-5xl text-center mt-12 shadow-text text-white font-bold`}
       >
-         {TITLES[PROJECTS[index]]}
+         {TITLES[project]}
       </h1>
    );
 }

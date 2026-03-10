@@ -1,0 +1,11 @@
+{
+    "text": "A multiplayer board game, created with a webstack. But don't let that fool you as the game feels like a normal game, with a beautiful 1930s aesthetic inspired by Cuphead, and other vintage rubberhose styles.",
+    "stack": [
+        "⚛️ React + Electron + TypeScript",
+        "🎞️ Framer Motion",
+        "🧲 Dnd Kit",
+        "🎨 Sass (SCSS)",
+        "🔧 GitHub Actions"
+    ],
+    "src": "https://github.com/amenhany/cluedo-game"
+}
