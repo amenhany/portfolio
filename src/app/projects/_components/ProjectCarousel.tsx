@@ -85,7 +85,7 @@ const ProjectCard = ({
             };
       },
       active: (off: number) => ({
-         x: off * 30 + 'vw', // Distance between cards
+         x: off * 29 + 'vw', // Distance between cards
          scale: off === 0 ? 1.2 : 0.8,
          opacity: Math.abs(off) > 1 ? 0 : off === 0 ? 1 : 0.6,
          filter: off === 0 ? 'blur(0px)' : 'blur(2px)',
@@ -95,8 +95,8 @@ const ProjectCard = ({
          top: '50%',
          y: '-50%',
       }),
-      tap: { scale: 1.1 },
-      hover: { scale: 1.3 },
+      tap: { scale: 1.15 },
+      hover: { scale: 1.25 },
       clicked: {
          scale: 1,
          position: 'fixed',
@@ -144,12 +144,12 @@ const ProjectCard = ({
             // opacity: { duration: 0.2 },
             delay: offset !== 0 && isFirstRender.current ? 0.25 : 0,
          }}
-         className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} aspect-video rounded-xl bg-neutral-800 border border-white/10`}
+         className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} rounded-xl bg-neutral-800 border border-white/10`}
       >
          <AnimatePresence>
             {echo && (
                <motion.div
-                  className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} -z-1 aspect-video rounded-xl bg-neutral-800 border border-white/10`}
+                  className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} -z-1 rounded-xl bg-neutral-800 border border-white/10`}
                   initial={{ scale: 1, opacity: 0.4 }}
                   animate={{ scale: 1.3, opacity: 0 }}
                   exit={{ opacity: 0 }}

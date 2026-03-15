@@ -11,7 +11,7 @@ export default function ProjectVideo({ project }: { project: string }) {
    function onLoad() {
       setHasLoaded(true);
       AudioManager.Instance().playMusic(
-         `/projects/${project}/audio.mp3`,
+         `/projects/${project}/audio.m4a`,
          undefined,
          0,
          true,
@@ -43,7 +43,7 @@ export default function ProjectVideo({ project }: { project: string }) {
             onPlaying={onLoad}
             preload="auto"
             className={`w-full h-screen object-contain ${hasLoaded ? '' : 'opacity-0'}`}
-            src={`/projects/${project}/video.mov`}
+            src={`/projects/${project}/video.mp4`}
          />
          {!hasLoaded && (
             <div

@@ -18,8 +18,9 @@ export default function BackButton({ project }: { project: string }) {
    };
    return (
       <motion.div
-         initial={{ x: -100 }}
-         animate={{ x: 0 }}
+         initial={{ x: -100, y: 0 }}
+         animate={{ x: 0, y: 0 }}
+         whileTap={{ y: 5 }}
          className="fixed top-0 left-0 pt-4 pl-4 z-100 nav-button"
       >
          <Link href={`/projects?dialogue=${project}`} onClick={handleClick}>
