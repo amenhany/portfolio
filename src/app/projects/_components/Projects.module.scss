@@ -1,9 +1,13 @@
 .projectCard {
     width: calc(20vw + 11rem);
     min-width: 16rem;
-    aspect-ratio: 1.66;
+    aspect-ratio: 16/10;
     border-radius: 13px;
     background: black;
+
+    img {
+        border-radius: 5px;
+    }
 
     // box-shadow: 10px 10px 1px 0px rgba(0, 0, 0, 0.1);
 

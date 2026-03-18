@@ -65,6 +65,7 @@ const ProjectCard = ({
    const [hasClicked, setHasClicked] = useState(false);
    const [echo, setEcho] = useState<boolean>(false);
    const router = useRouter();
+   const imgRef = useRef<HTMLImageElement>(null);
    let offset = itemIndex - currentIndex;
    if (offset > projects.length / 2) offset -= projects.length;
    if (offset < -projects.length / 2) offset += projects.length;
@@ -123,6 +124,7 @@ const ProjectCard = ({
 
       setTimeout(() => {
          setHasClicked(true);
+         if (imgRef.current) imgRef.current.style.objectFit = 'contain';
          setTimeout(onClick, ZOOM_TIME * 1000);
       }, 1000);
    };
@@ -162,7 +164,7 @@ const ProjectCard = ({
                   <img
                      src={`/projects/${name}/thumbnail.png`}
                      alt={name}
-                     className="w-full h-full object-contain select-none"
+                     className="w-full h-full object-cover select-none"
                      draggable={false}
                   />
                </motion.div>
@@ -171,7 +173,8 @@ const ProjectCard = ({
          <img
             src={`/projects/${name}/thumbnail.png`}
             alt={name}
-            className="w-full h-full object-contain select-none"
+            ref={imgRef}
+            className="w-full h-full object-cover select-none"
             draggable={false}
          />
       </motion.div>
