@@ -4,18 +4,25 @@ import { AudioManager } from '@/lib/AudioManager';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
-export default function ProjectVideo({ project }: { project: string }) {
+export default function ProjectVideo({
+   project,
+   sound = false,
+}: {
+   project: string;
+   sound?: boolean;
+}) {
    const [hasLoaded, setHasLoaded] = useState(false);
    const videoRef = useRef<HTMLVideoElement>(null);
 
    function onLoad() {
       setHasLoaded(true);
-      AudioManager.Instance().playMusic(
-         `/projects/${project}/audio.m4a`,
-         undefined,
-         0,
-         true,
-      );
+      if (sound)
+         AudioManager.Instance().playMusic(
+            `/projects/${project}/audio.m4a`,
+            undefined,
+            0,
+            true,
+         );
    }
 
    const attemptPlay = async (video: HTMLVideoElement | null) => {

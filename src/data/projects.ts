@@ -15,4 +15,5 @@ export type ProjectInfo = {
         text: string;
         icon: string;
     }[];
+    sound?: boolean;
 };

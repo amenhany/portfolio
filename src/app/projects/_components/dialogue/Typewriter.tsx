@@ -15,6 +15,7 @@ type TypewriterProps = {
    delay?: number;
    onFinished?: () => void;
    skip?: boolean;
+   sound?: boolean;
 } & React.ComponentPropsWithoutRef<'p'>;
 
 export default function Typewriter({
@@ -23,6 +24,7 @@ export default function Typewriter({
    delay = 0,
    onFinished = () => {},
    skip = false,
+   sound = true,
    ...props
 }: TypewriterProps) {
    const count = useMotionValue(0);
@@ -40,14 +42,16 @@ export default function Typewriter({
    }, [rounded]);
 
    useEffect(() => {
-      if (intervalRef.current !== null) {
-         clearInterval(intervalRef.current);
-      }
+      if (sound) {
+         if (intervalRef.current !== null) {
+            clearInterval(intervalRef.current);
+         }
 
-      intervalRef.current = setInterval(
-         () => AudioManager.Instance().playSfx('/audio/dialogue.wav'),
-         75,
-      );
+         intervalRef.current = setInterval(
+            () => AudioManager.Instance().playSfx('/audio/dialogue.wav'),
+            75,
+         );
+      }
 
       count.set(0);
       const anim = animate(count, tokens.length, {
