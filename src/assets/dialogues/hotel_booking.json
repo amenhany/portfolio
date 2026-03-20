@@ -1,0 +1,36 @@
+[
+    [
+        { "text": "This is my college project for our " },
+        { "text": "Java", "color": "red-400" },
+        { "text": " Course, but by far it wasn't my first encounter with " },
+        { "text": "Java", "color": "red-400" },
+        { "text": " nor OOP. I started learning " },
+        { "text": "Java", "color": "red-400" },
+        { "text": " all the way back in 2019 at the end of my middle-school years." }
+    ],
+    [
+        {
+            "text": "I chose this project because it is a larger project that has the various concepts I learnt from OOP in a well defined structure with a UML, a build tool, and unit tests using "
+        },
+        { "text": "JUnit", "color": "green-500" },
+        { "text": "." }
+    ],
+    [
+        {
+            "text": "This is also a team project, and I was the leader of 4 other computer engineers with me in the group. I acted as a project manager/designer and also helped my teammates with debugging, troubleshooting and implementation of the algorithms."
+        }
+    ],
+    [
+        {
+            "text": "I know the GUI is not very impressive but it was made with "
+        },
+        { "text": "JavaFX", "color": "red-400" },
+        { "text": ", " },
+        { "text": "FXML", "color": "blue-500" },
+        { "text": ", " },
+        { "text": "CSS", "color": "blue-500" },
+        {
+            "text": " in a single day, by me. Including all the validation checks and error messages (there were a lot)."
+        }
+    ]
+]

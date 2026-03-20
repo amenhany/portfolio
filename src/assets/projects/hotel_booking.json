@@ -1,0 +1,10 @@
+{
+    "text": "A hotel booking management system built in Java with a JavaFX desktop interface.\n\nThe project focuses on object-oriented design, using a modular class structure to model accommodations (each accommodation has different attributes), bookings, users, and billing. The application allows users to reserve rooms, view their bookings, and track costs, while administrators can manage and add new accommodations as well as track each room's snack inventory.\n\nThe system also includes client and server-side validation for all forms, basic authentication and authorization, and automated tests for edge cases. The interface is built with JavaFX, FXML, and CSS, and the project uses Gradle for building and dependency management.",
+    "stack": [
+        { "text": "Java", "icon": "/images/icons/java.svg" },
+        { "text": "JavaFX", "icon": "/images/icons/javafx.png" },
+        { "text": "JUnit", "icon": "/images/icons/junit.svg" },
+        { "text": "Gradle", "icon": "/images/icons/gradle.svg" }
+    ],
+    "src": "https://github.com/amenhany/cse231-project"
+}

@@ -1,5 +1,11 @@
 {
-    "text": "This was my first real full-stack website. I am a huge fan of movies and TV shows so it was only natural that I wanted an easier way to rate them in a customized list that can be shared with anyone. And that is exactly what this site is for.",
-    "stack": [],
+    "text": "A full-stack web app for tracking and rating TV shows. Users can search shows through the TVMaze API, build their own lists, and share them with others.\n\nThe app focuses on a smooth and responsive UI with dark mode, animations, and drag-and-drop list sorting using dnd-kit. Lists, profiles, and ratings are saved in a MongoDB database so users can manage their collection across devices.\n\nThe backend is built with Node.js and Express and handles authentication, validation, and security. The project also integrates external APIs and Cloudinary for media storage.",
+    "stack": [
+        { "text": "React", "icon": "/images/icons/react.svg" },
+        { "text": "Bootstrap", "icon": "/images/icons/bootstrap.svg" },
+        { "text": "Node.js", "icon": "/images/icons/node.svg" },
+        { "text": "Express", "icon": "/images/icons/express.svg" },
+        { "text": "MongoDB", "icon": "/images/icons/mongo.svg" }
+    ],
     "src": "https://github.com/amenhany/react-tv-list"
 }

@@ -1,0 +1,10 @@
+{
+    "text": "A desktop XML editor and analyzer written in C++ with a Qt GUI and a CLI Mode.\n\nThe project focuses on clean architecture and modular design. The codebase is separated into independent modules for XML parsing, file I/O, social network analysis, and visualization, making the system easy to extend.\n\nThe tool can validate and format XML, convert XML to JSON, compress and decompress using BPE, and analyze social network data using graph algorithms. It also generates visual graphs using Graphviz.",
+    "stack": [
+        { "text": "C++", "icon": "/images/icons/cpp.svg" },
+        { "text": "Qt", "icon": "/images/icons/qt.svg" },
+        { "text": "CMake", "icon": "/images/icons/cmake.svg" },
+        { "text": "Graphviz", "icon": "/images/icons/graphviz.svg" }
+    ],
+    "src": "https://github.com/amenhany/xml-parser"
+}

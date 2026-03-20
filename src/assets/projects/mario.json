@@ -1,0 +1,9 @@
+{
+    "text": "A platformer game demo built from scratch using the Unity game engine and C#.\n\nThe project recreates classic Mario-style gameplay with smooth platforming physics inspired by Celeste. It includes enemies, power-ups, pipes, coins, animations, and a full sound and music system.\n\nThe game also features a simple level editor for placing tiles, collision boxes, and parallax backgrounds, allowing new levels to be created easily.",
+    "stack": [
+        { "text": "Unity", "icon": "/images/icons/unity.png" },
+        { "text": "C#", "icon": "/images/icons/csharp.svg" }
+    ],
+    "src": "https://github.com/amenhany/mario-demo",
+    "sound": true
+}

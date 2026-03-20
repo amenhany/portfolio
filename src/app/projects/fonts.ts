@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Rubik } from 'next/font/google';
+import { JetBrains_Mono, Rubik } from 'next/font/google';
 
 export const marioFont = localFont({
     src: './_fonts/SuperMario256.ttf',
@@ -12,6 +12,12 @@ export const cluedoFont = localFont({
 });
 
 export const tvListFont = Rubik({
+    subsets: ['latin'],
+    weight: ['700'],
+    display: 'swap',
+});
+
+export const monoFont = JetBrains_Mono({
     subsets: ['latin'],
     weight: ['700'],
     display: 'swap',

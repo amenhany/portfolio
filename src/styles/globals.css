@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "./variables.css";
-@source inline("text-green-500");
+@source inline("text-green-500 text-red-400 text-cyan-300");
 
 @layer base {
   .font-outline-2 {

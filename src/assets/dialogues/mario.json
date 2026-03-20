@@ -1,0 +1,30 @@
+[
+    [
+        {
+            "text": "This is one of my oldest projects, I made it before graduating high school."
+        }
+    ],
+    [
+        {
+            "text": "Game development was getting very popular and I have always wanted to modify and make my own games rather than just consume them. And the best way to learn something was to start making things, so I started making a "
+        },
+        { "text": "Super Mario World", "color": "red-400" },
+        { "text": " clone using the Unity Game Engine." }
+    ],
+    [
+        {
+            "text": "There were a lot of plans I had for this game including having B-side levels with funky remixed songs like "
+        },
+        { "text": "Celeste", "color": "cyan-300" },
+        { "text": " and having " },
+        { "text": "analog horror" },
+        {
+            "text": " elements but I ended up getting burnt out from encountering many bugs from the Unity Engine, particularly when designing the UI and Camera Movement."
+        }
+    ],
+    [
+        {
+            "text": "I ended up revisiting this game more recently, as a more experienced developer and it is currently WIP but already its architecture is a lot more modular and performant."
+        }
+    ]
+]

@@ -1,11 +1,13 @@
 {
-    "text": "A multiplayer board game, created with a webstack. But don't let that fool you as the game feels like a normal game, with a beautiful 1930s aesthetic inspired by Cuphead, and other vintage rubberhose styles.",
+    "text": "A multiplayer version of the classic Cluedo board game built with React, TypeScript, and Electron.\n\nThe goal was to make a web-based game feel like a real desktop game. The project includes a 1930s noir style inspired by Cuphead, smooth scene transitions, and interactive drag-and-drop gameplay.\n\nMultiplayer logic is handled by boardgame.io for reliable turn-based state sync. The game also uses a custom AudioManager built with the Web Audio API for layered music and sound effects (which is also used in this website).",
     "stack": [
-        "⚛️ React + Electron + TypeScript",
-        "🎞️ Framer Motion",
-        "🧲 Dnd Kit",
-        "🎨 Sass (SCSS)",
-        "🔧 GitHub Actions"
+        { "text": "React", "icon": "/images/icons/react.svg" },
+        { "text": "Electron", "icon": "/images/icons/electron.svg" },
+        { "text": "TypeScript", "icon": "/images/icons/typescript.svg" },
+        { "text": "Sass (SCSS)", "icon": "/images/icons/sass.svg" },
+        { "text": "Vitest", "icon": "/images/icons/vitest.png" },
+        { "text": "GitHub Actions (CI/CD)", "icon": "/images/icons/github.svg" }
     ],
-    "src": "https://github.com/amenhany/cluedo-game"
+    "src": "https://github.com/amenhany/cluedo-game",
+    "sound": true
 }
