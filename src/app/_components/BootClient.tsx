@@ -58,7 +58,7 @@ export default function BootClient() {
                   initial={{ opacity: 0.25 }}
                   animate={{
                      opacity: [0, 0.25, 0.25, 0],
-                     transition: { repeat: Infinity, duration: 2 },
+                     transition: { repeat: Infinity, duration: 2, delay: 1 },
                   }}
                   exit={{ opacity: 0 }}
                >

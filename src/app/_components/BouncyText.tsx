@@ -1,10 +1,11 @@
 'use client';
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 
 const letters = [...'Amen'];
 
 const container = {
-   initial: { scale: 1 },
+   hidden: {},
+   visible: {},
    animate: {
       scale: 0.5,
       transition: {
@@ -14,28 +15,45 @@ const container = {
    },
 };
 
-const item = {
-   initial: { y: 0 },
-   animate: { y: [0, -20, 0] },
+const letterVariants: Variants = {
+   hidden: { y: '110%' },
+   visible: (i: number) => ({
+      y: '0%',
+      transition: {
+         delay: 0.15 + i * 0.09, // stagger
+         duration: 0.75,
+         ease: [0.22, 1, 0.36, 1],
+      },
+   }),
+   animate: { y: [0, -20, 0] }, // bounce
 };
 
 export default function BouncyText({ started }: { started: boolean }) {
    return (
       <motion.div
          variants={container}
-         initial="initial"
-         animate={started ? 'animate' : 'initial'}
-         style={{ display: 'inline-block' }}
+         initial="hidden"
+         animate={started ? 'animate' : 'visible'}
+         style={{ display: 'inline-flex' }}
       >
          {letters.map((l, i) => (
-            <motion.span
+            <span
                key={i}
-               variants={item}
-               transition={{ duration: 0.4, ease: 'easeInOut' }}
-               style={{ display: 'inline-block' }}
+               style={{
+                  display: 'inline-block',
+                  overflow: 'hidden',
+                  lineHeight: 1,
+               }}
             >
-               {l}
-            </motion.span>
+               <motion.span
+                  custom={i}
+                  variants={letterVariants}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  style={{ display: 'inline-block' }}
+               >
+                  {l}
+               </motion.span>
+            </span>
          ))}
       </motion.div>
    );
