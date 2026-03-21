@@ -1,11 +1,6 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
-import {
-   useMotionValue,
-   useTransform,
-   animate,
-   AnimationPlaybackControlsWithThen,
-} from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { animate, useMotionValue } from 'motion/react';
 import { AudioManager } from '@/lib/AudioManager';
 import { Token } from '@/types/dialogue';
 
@@ -20,71 +15,77 @@ type TypewriterProps = {
 
 export default function Typewriter({
    tokens,
-   speed = 0.1,
-   delay = 0,
+   speed = 50,
    onFinished = () => {},
    skip = false,
    sound = true,
    ...props
 }: TypewriterProps) {
+   const containerRef = useRef<HTMLParagraphElement>(null);
    const count = useMotionValue(0);
-   const rounded = useTransform(count, (v) => Math.round(v));
+   const audioSrcRef = useRef<AudioBufferSourceNode | null>(null);
 
-   // store animation controls so we can stop/jump
-   const controlsRef = useRef<AnimationPlaybackControlsWithThen | null>(null);
-   const intervalRef = useRef<NodeJS.Timeout>(null);
-
-   const [latestCount, setLatestCount] = useState(0);
+   function stopAudio() {
+      if (audioSrcRef.current) audioSrcRef.current.loop = false;
+   }
 
    useEffect(() => {
-      const unsubscribe = rounded.on('change', (v) => setLatestCount(v));
-      return unsubscribe;
-   }, [rounded]);
-
-   useEffect(() => {
+      let isCancelled = false;
       if (sound) {
-         if (intervalRef.current !== null) {
-            clearInterval(intervalRef.current);
-         }
-
-         intervalRef.current = setInterval(
-            () => AudioManager.Instance().playSfx('/audio/dialogue.wav'),
-            75,
-         );
+         AudioManager.Instance()
+            .playSfx('/audio/dialogue.wav', true)
+            .then((src) => {
+               if (!isCancelled) audioSrcRef.current = src;
+               else src.loop = false;
+            });
       }
 
       count.set(0);
       const anim = animate(count, tokens.length, {
-         type: 'tween',
          duration: tokens.length / speed,
-         delay,
          ease: 'linear',
+         onUpdate: (latest) => {
+            const currentIdx = Math.floor(latest);
+            if (!containerRef.current) return;
+
+            const children = containerRef.current.children;
+            for (let i = 0; i < children.length; i++) {
+               (children[i] as HTMLElement).style.opacity = i < currentIdx ? '1' : '0';
+            }
+         },
          onComplete: () => {
+            stopAudio();
             onFinished();
-            if (intervalRef.current) clearInterval(intervalRef.current);
          },
       });
-      controlsRef.current = anim;
 
       return () => {
+         isCancelled = true;
          anim.stop();
-         if (intervalRef.current) clearInterval(intervalRef.current);
+         stopAudio();
       };
-   }, [tokens, speed, delay, onFinished]);
+   }, [tokens, speed]);
 
+   // Handle Skip
    useEffect(() => {
-      if (skip && controlsRef.current) {
-         controlsRef.current.stop();
-         count.set(tokens.length);
+      if (skip) {
+         count.stop();
+         stopAudio();
+         if (containerRef.current) {
+            Array.from(containerRef.current.children).forEach(
+               (c) => ((c as HTMLElement).style.opacity = '1'),
+            );
+         }
          onFinished();
-         if (intervalRef.current) clearInterval(intervalRef.current);
       }
-   }, [skip, tokens, onFinished]);
+   }, [skip]);
 
    return (
-      <p {...props}>
-         {tokens.slice(0, latestCount).map((t, i) => (
-            <React.Fragment key={i}>{t.node(t.char)}</React.Fragment>
+      <p ref={containerRef} {...props}>
+         {tokens.map((t, i) => (
+            <span key={i} style={{ opacity: '0' }}>
+               {t.node(t.char)}
+            </span>
          ))}
       </p>
    );

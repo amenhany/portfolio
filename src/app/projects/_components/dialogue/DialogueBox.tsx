@@ -34,21 +34,23 @@ export default function DialogueBox({
          return;
       }
 
-      setDialogueIndex((prev) => {
-         if (prev >= dialogue.length - 1) return prev;
+      if (dialogueIndex < dialogue.length - 1) {
+         setShouldSkip(false);
          setTypewriterDone(false);
+         setDialogueIndex((prev) => prev + 1);
          AudioManager.Instance().playSfx('/audio/next_dialogue.wav');
-         return prev + 1;
-      });
-   }, [typewriterDone, dialogue.length]);
+      }
+   }, [typewriterDone, dialogueIndex, dialogue.length]);
 
    const handleFinished = useCallback(() => {
       setTypewriterDone(true);
-      setShouldSkip(false);
    }, []);
 
    useEffect(() => {
       setDialogueIndex(0);
+      setTypewriterDone(false);
+      setShouldSkip(false);
+      setDialogueDone(false);
    }, [dialogue]);
 
    useEffect(() => {

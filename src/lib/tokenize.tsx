@@ -4,13 +4,14 @@ import { DialoguePart, Token } from '@/types/dialogue';
 export function tokenize(parts: DialoguePart[]) {
    const tokens: Token[] = [];
    if (!parts || !parts.length) return [];
+   const index = tokens.length;
 
    parts.forEach((part) => {
       for (const char of part.text) {
          const makeNode = (c: string) => {
             if (part.link) {
                return (
-                  <SecretLink key={Math.random()} secret={part.link}>
+                  <SecretLink key={`link-${index}`} secret={part.link}>
                      {c}
                   </SecretLink>
                );
@@ -18,7 +19,7 @@ export function tokenize(parts: DialoguePart[]) {
             if (part.color) {
                return (
                   <span
-                     key={Math.random()}
+                     key={`char-${index}`}
                      className={`text-${part.color} pointer-events-none`}
                   >
                      {c}
@@ -26,7 +27,7 @@ export function tokenize(parts: DialoguePart[]) {
                );
             }
             return (
-               <span key={Math.random()} className="pointer-events-none">
+               <span key={`char-${index}`} className="pointer-events-none">
                   {c}
                </span>
             );
