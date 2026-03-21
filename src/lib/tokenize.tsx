@@ -1,38 +1,35 @@
 import SecretLink from '@/components/SecretLink';
-import { DialoguePart, Token } from '@/types/dialogue';
+import { DialoguePart } from '@/types/dialogue';
+import type { ReactNode } from 'react';
 
-export function tokenize(parts: DialoguePart[]) {
-   const tokens: Token[] = [];
-   if (!parts || !parts.length) return [];
-   const index = tokens.length;
+export function tokenize(parts: DialoguePart[]): ReactNode[] {
+   const tokens: ReactNode[] = [];
+   if (!parts?.length) return [];
 
    parts.forEach((part) => {
       for (const char of part.text) {
-         const makeNode = (c: string) => {
-            if (part.link) {
-               return (
-                  <SecretLink key={`link-${index}`} secret={part.link}>
-                     {c}
-                  </SecretLink>
-               );
-            }
-            if (part.color) {
-               return (
-                  <span
-                     key={`char-${index}`}
-                     className={`text-${part.color} pointer-events-none`}
-                  >
-                     {c}
-                  </span>
-               );
-            }
-            return (
-               <span key={`char-${index}`} className="pointer-events-none">
-                  {c}
-               </span>
+         if (part.link) {
+            tokens.push(
+               <SecretLink key={tokens.length} secret={part.link}>
+                  {char}
+               </SecretLink>,
             );
-         };
-         tokens.push({ char, node: makeNode });
+         } else if (part.color) {
+            tokens.push(
+               <span
+                  key={tokens.length}
+                  className={`text-${part.color} pointer-events-none`}
+               >
+                  {char}
+               </span>,
+            );
+         } else {
+            tokens.push(
+               <span key={tokens.length} className="pointer-events-none">
+                  {char}
+               </span>,
+            );
+         }
       }
    });
 

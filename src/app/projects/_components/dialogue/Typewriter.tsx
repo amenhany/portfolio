@@ -1,11 +1,10 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { type ReactNode, useEffect, useRef } from 'react';
 import { animate, useMotionValue } from 'motion/react';
 import { AudioManager } from '@/lib/AudioManager';
-import { Token } from '@/types/dialogue';
 
 type TypewriterProps = {
-   tokens: Token[];
+   tokens: ReactNode[];
    speed?: number;
    delay?: number;
    onFinished?: () => void;
@@ -82,9 +81,9 @@ export default function Typewriter({
 
    return (
       <p ref={containerRef} {...props}>
-         {tokens.map((t, i) => (
+         {tokens.map((node, i) => (
             <span key={i} style={{ opacity: '0' }}>
-               {t.node(t.char)}
+               {node}
             </span>
          ))}
       </p>
