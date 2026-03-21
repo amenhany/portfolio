@@ -7,5 +7,6 @@
         { "text": "Express", "icon": "/images/icons/express.svg" },
         { "text": "MongoDB", "icon": "/images/icons/mongo.svg" }
     ],
-    "src": "https://github.com/amenhany/react-tv-list"
+    "src": "https://github.com/amenhany/react-tv-list",
+    "videoId": "cw7VnDE8hV0"
 }

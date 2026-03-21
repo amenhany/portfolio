@@ -6,5 +6,6 @@
         { "text": "JUnit", "icon": "/images/icons/junit.svg" },
         { "text": "Gradle", "icon": "/images/icons/gradle.svg" }
     ],
-    "src": "https://github.com/amenhany/cse231-project"
+    "src": "https://github.com/amenhany/cse231-project",
+    "videoId": "CgogIk22DT4"
 }

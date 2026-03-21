@@ -6,5 +6,6 @@
         { "text": "CMake", "icon": "/images/icons/cmake.svg" },
         { "text": "Graphviz", "icon": "/images/icons/graphviz.svg" }
     ],
-    "src": "https://github.com/amenhany/xml-parser"
+    "src": "https://github.com/amenhany/xml-parser",
+    "videoId": "whIGkCVLoao"
 }

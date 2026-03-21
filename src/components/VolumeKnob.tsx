@@ -24,6 +24,10 @@ export default function VolumeKnob() {
       AudioManager.Instance().setMasterVolume(isMuted ? volume : 0);
       setIsMuted((prev) => !prev);
       localStorage.setItem('muted', isMuted ? 'no' : 'yes');
+
+      if (window.YT && window.playerRef) {
+         isMuted ? window.playerRef.unMute() : window.playerRef.mute();
+      }
    }
 
    function updateVolume(value: number) {
@@ -33,6 +37,10 @@ export default function VolumeKnob() {
 
       setIsMuted(false);
       localStorage.setItem('muted', 'no');
+
+      if (window.YT && window.playerRef) {
+         window.playerRef.setVolume(Math.round(value * 100));
+      }
 
       if (inputRef.current) updateSliderFill(inputRef.current);
    }

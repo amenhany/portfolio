@@ -162,7 +162,7 @@ const ProjectCard = ({
                   onAnimationComplete={() => setEcho(false)}
                >
                   <img
-                     src={`/projects/${name}/thumbnail.png`}
+                     src={`/images/thumbnails/${name}.png`}
                      alt={name}
                      className="w-full h-full object-cover select-none"
                      draggable={false}
@@ -171,7 +171,7 @@ const ProjectCard = ({
             )}
          </AnimatePresence>
          <img
-            src={`/projects/${name}/thumbnail.png`}
+            src={`/images/thumbnails/${name}.png`}
             alt={name}
             ref={imgRef}
             className="w-full h-full object-cover select-none"
