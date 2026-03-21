@@ -1,13 +1,3 @@
-@keyframes pan {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 0%;
-    }
-}
-
-
 .starContainer {
     height: 100%;
     overflow: hidden;
@@ -16,18 +6,25 @@
 
 .starPattern {
     background-image: url("/images/star-pattern.svg");
-    background-size: 10%;
+    background-size: 5%;
+    background-repeat: repeat;
     position: absolute;
     left: 50%;
     top: 0px;
-    translate: -50% 0%;
     z-index: 1;
     height: 100%;
-    width: 100%;
+    width: 200%;
     min-width: 1200px;
     opacity: 0.1;
     animation: pan 180s linear infinite;
-    will-change: background-position;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+}
+
+@keyframes pan {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(-75%); } /* Slide half its width */
 }
 
 .starGradientOverlay {
