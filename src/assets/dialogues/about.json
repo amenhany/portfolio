@@ -1,12 +1,40 @@
 [
-    [{ "text": "I am Amen Hany. Computer Engineer, Game Developer, and Web Developer" }],
-    [{ "text": "A computer enthusiast, system designer, ehh... You get the point." }],
     [
         {
-            "text": "I love exploring new things, always. And have loved computers for forever. The ability to create my own programs to do what I want makes me feel "
+            "text": "I am Amen Hany. A Computer Engineer, Game Developer, and Web Developer."
+        }
+    ],
+    [
+        {
+            "text": "I have loved computers and tinkering with technology and software since I was a kid. Which means I have grown very accustomed to finding solutions for some "
         },
         { "text": "invincible", "link": "invincible" },
-        { "text": "." }
+        {
+            "text": " bugs as I have had to deal with them basically my entire life (especially dealing with a Windows + AMD GPU + Intel CPU Combo :I)"
+        }
+    ],
+    [
+        {
+            "text": "I have made countless projects, programming and non-programming related, even outside the ones shown on this portfolio. They are mostly smaller things I use for my digital quality of life, but the ones I decided to showcase here are the more official/larger projects I have made."
+        }
+    ],
+    [
+        {
+            "text": "Some of the projects shown (and not shown) are team based, and for all of them I am the leader of the team to ensure a solid, clean structure for our projects because I can not work with spaghetti code (despite what our game jam team's name might imply)"
+        }
+    ],
+    [
+        {
+            "text": "For my certifications and achievements, my team won the 1st place in the "
+        },
+        { "text": "Global Game Jam", "color": "blue-500" },
+        { "text": " hosted at the " },
+        { "text": "University of Canda", "color": "red-400" },
+        { "text": " by the " },
+        { "text": "University of Prince Edward", "color": "green-500" },
+        {
+            "text": " in Egypt. I also placed 6th in my university's Competitive Programming Contest "
+        }
     ],
     [
         {
