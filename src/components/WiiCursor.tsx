@@ -18,13 +18,17 @@ export default function WiiCursor() {
          }
       };
 
+      const handleTouch = () => setVisible(false);
+
       document.addEventListener('mousemove', move);
       document.addEventListener('mouseout', handleMouseOut);
+      document.addEventListener('touchstart', handleTouch, { passive: true });
       window.addEventListener('blur', () => setVisible(false));
 
       return () => {
          document.removeEventListener('mousemove', move);
          document.removeEventListener('mouseout', handleMouseOut);
+         document.removeEventListener('touchstart', handleTouch);
          window.removeEventListener('blur', () => setVisible(false));
       };
    }, []);
