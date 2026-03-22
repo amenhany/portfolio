@@ -182,7 +182,7 @@ function RedArrow({
 }) {
    return (
       <motion.div
-         className={`cursor-pointer red-arrow z-50 absolute ${direction === 'left' ? 'left-[23%] -rotate-90' : 'right-[23%] rotate-90'}`}
+         className={`cursor-pointer red-arrow z-50 absolute ${direction === 'left' ? 'lg:left-[23vw] sm:left-[15vw] left-[23vw] -rotate-90' : 'lg:right-[23vw] sm:right-[15vw] right-[23vw] rotate-90'} -bottom-5 sm:bottom-auto`}
          whileHover={{ scale: 1.1, y: -5 }}
          whileTap={{ scale: 0.9 }}
          onClick={onClick}

@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { JetBrains_Mono, Rubik } from 'next/font/google';
+import { JetBrains_Mono, Roboto, Rubik } from 'next/font/google';
 
 export const marioFont = localFont({
     src: './_fonts/SuperMario256.ttf',

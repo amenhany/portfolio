@@ -76,10 +76,10 @@ export default function DialogueBox({
          onAnimationComplete={() => setTimeout(() => setDialogueBoxOpen(true), 500)}
       >
          {dialogueBoxOpen && (
-            <>
+            <div className="overflow-auto size-full">
                <Typewriter
                   tokens={tokens}
-                  className="text-lg md:text-2xl lg:p-14 p-10 font-normal"
+                  className="text-sm md:text-lg lg:text-2xl lg:p-14 p-10 font-normal"
                   speed={100}
                   onFinished={handleFinished}
                   skip={shouldSkip}
@@ -87,7 +87,7 @@ export default function DialogueBox({
 
                {typewriterDone && dialogueIndex < dialogue.length - 1 && (
                   <motion.div
-                     className={`${styles.dialogueArrow} red-arrow absolute right-20 bottom-20`}
+                     className={`${styles.dialogueArrow} red-arrow absolute md:right-20 md:bottom-20 right-12 bottom-10`}
                      initial={{ y: 0 }}
                      animate={{ y: [0, -10, -10, 0] }}
                      transition={{
@@ -96,10 +96,10 @@ export default function DialogueBox({
                         duration: 1.5,
                      }}
                   >
-                     <Triangle />
+                     <Triangle className="size-4 md:size-6" />
                   </motion.div>
                )}
-            </>
+            </div>
          )}
       </motion.div>
    );

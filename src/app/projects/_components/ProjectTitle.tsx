@@ -14,7 +14,7 @@ const FONTS: Record<Project, NextFont> = {
    tvlist: tvListFont,
    mario: marioFont,
    xml_editor: monoFont,
-   hotel_booking: defaultFont,
+   hotel_booking: tvListFont,
 };
 const TITLES: Record<Project, ReactNode> = {
    cluedo: <CluedoTitle />,

@@ -26,7 +26,7 @@ export default function ProjectDescription({
                   onClick={() => setParam('info', null)}
                />
                <motion.aside
-                  className="absolute top-0 left-0 z-90 text-white h-full bg-linear-85 from-black from-20% to-transparent w-110 p-11 overflow-auto"
+                  className="absolute top-0 left-0 z-90 text-white h-full bg-linear-85 from-black from-20% to-transparent sm:w-110 w-full p-11 overflow-auto"
                   initial={{ opacity: 0, x: '-100%' }}
                   exit={{ opacity: 0, x: '-100%' }}
                   animate={{ opacity: 1, x: 0 }}
