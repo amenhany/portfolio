@@ -24,6 +24,8 @@ export default function MarioSecret({ onDone }: { onDone?: () => void }) {
    }
 
    useEffect(() => {
+      AudioManager.Instance().load('/audio/scream.wav');
+      AudioManager.Instance().load('/audio/95.mp3');
       // play sound
       const startTimeout = setTimeout(() => {
          AudioManager.Instance().playMusic('/audio/scream.wav');

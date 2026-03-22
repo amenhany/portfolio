@@ -14,6 +14,9 @@ export default function ProjectsClient() {
    const [index, setIndex] = useState(0);
 
    useEffect(() => {
+      AudioManager.Instance().load('/audio/music/main.wav');
+      AudioManager.Instance().load('/audio/music/next.wav');
+      AudioManager.Instance().load('/audio/music/click.wav');
       const dialogue = getParams('dialogue');
       if (dialogue.length) {
          const idx = projects.findIndex((p) => dialogue.includes(p));

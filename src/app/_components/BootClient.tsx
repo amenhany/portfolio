@@ -29,6 +29,7 @@ export default function BootClient() {
    useEffect(() => {
       AudioManager.Instance().load('/audio/boot.mp3');
       if (!started) return;
+      AudioManager.Instance().load('/audio/dialogue.wav');
 
       const timer = setTimeout(() => {
          setSwapped(true);
