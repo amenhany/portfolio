@@ -30,6 +30,7 @@ export default function BootClient() {
       AudioManager.Instance().load('/audio/boot.mp3');
       if (!started) return;
       AudioManager.Instance().load('/audio/dialogue.wav');
+      AudioManager.Instance().load('/audio/next_dialogue.wav');
 
       const timer = setTimeout(() => {
          setSwapped(true);
