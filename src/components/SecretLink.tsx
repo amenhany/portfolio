@@ -4,10 +4,12 @@ import { useQueryParams } from '@/hooks/useQueryParams';
 import { MouseEventHandler, ReactNode } from 'react';
 
 export default function SecretLink({
-   secret: secret,
+   secret,
+   color = 'blue-500',
    children,
 }: {
    secret: string;
+   color?: string;
    children: ReactNode;
 }) {
    const { setParam } = useQueryParams();
@@ -18,7 +20,7 @@ export default function SecretLink({
    };
 
    return (
-      <span onClick={handleClick} className="text-blue-500">
+      <span onClick={handleClick} className={`text-${color}`}>
          {children}
       </span>
    );

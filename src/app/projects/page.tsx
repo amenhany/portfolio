@@ -5,7 +5,7 @@ import Contacts from './_components/Contacts';
 
 export default function Projects() {
    return (
-      <main className="bg-nintendo-yellow min-h-screen">
+      <main className="bg-nintendo-yellow min-h-screen relative">
          <StarBackground />
          <Suspense fallback={null}>
             <ProjectsClient />

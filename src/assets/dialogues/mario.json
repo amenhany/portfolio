@@ -17,7 +17,7 @@
         },
         { "text": "Celeste", "color": "cyan-300" },
         { "text": " and having " },
-        { "text": "analog horror" },
+        { "text": "analog horror", "color": "orange-800", "link": "95" },
         {
             "text": " elements but I ended up getting burnt out from encountering many bugs from the Unity Engine, particularly when designing the UI and Camera Movement."
         }

@@ -10,7 +10,11 @@ export function tokenize(parts: DialoguePart[]): ReactNode[] {
       for (const char of part.text) {
          if (part.link) {
             tokens.push(
-               <SecretLink key={tokens.length} secret={part.link}>
+               <SecretLink
+                  key={tokens.length}
+                  secret={part.link}
+                  color={part.color ? part.color : undefined}
+               >
                   {char}
                </SecretLink>,
             );
