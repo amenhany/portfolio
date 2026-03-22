@@ -50,6 +50,8 @@ export default function Typewriter({
             const children = containerRef.current.children;
             for (let i = 0; i < children.length; i++) {
                (children[i] as HTMLElement).style.opacity = i < currentIdx ? '1' : '0';
+               (children[i] as HTMLElement).style.pointerEvents =
+                  i < currentIdx ? 'auto' : 'none';
             }
          },
          onComplete: () => {
@@ -71,9 +73,10 @@ export default function Typewriter({
          count.stop();
          stopAudio();
          if (containerRef.current) {
-            Array.from(containerRef.current.children).forEach(
-               (c) => ((c as HTMLElement).style.opacity = '1'),
-            );
+            Array.from(containerRef.current.children).forEach((c) => {
+               (c as HTMLElement).style.opacity = '1';
+               (c as HTMLElement).style.pointerEvents = 'auto';
+            });
          }
          onFinished();
       }
@@ -82,7 +85,7 @@ export default function Typewriter({
    return (
       <p ref={containerRef} {...props}>
          {tokens.map((node, i) => (
-            <span key={i} style={{ opacity: '0' }}>
+            <span key={i} style={{ opacity: '0', pointerEvents: 'none' }}>
                {node}
             </span>
          ))}
