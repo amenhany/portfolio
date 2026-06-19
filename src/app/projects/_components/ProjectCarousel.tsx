@@ -65,12 +65,16 @@ const variants: Variants = {
             scale: 0,
             opacity: 0,
             x: 0,
+            top: '50%',
+            y: '-50%',
          };
       else
          return {
             opacity: 0,
             scale: 0,
             x: off > 0 ? '-70%' : '70%',
+            top: '50%',
+            y: '-50%',
          };
    },
    active: (off: number) => ({
@@ -149,7 +153,7 @@ const ProjectCard = ({
             // opacity: { duration: 0.2 },
             delay: offset !== 0 && isFirstRender.current ? 0.25 : 0,
          }}
-         className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} rounded-xl bg-neutral-800 border border-white/10`}
+         className={`absolute ${styles.projectCard} ${offset === 0 ? styles.active : ''} ${hasClicked ? styles.clicked : ''} rounded-xl bg-neutral-800 border border-white/10`}
       >
          {echo && (
             <div className={styles.echo}>
