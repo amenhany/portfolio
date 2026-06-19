@@ -11,11 +11,44 @@
   }
 }
 
-html,
-body,
 * {
-  /* cursor: url("/cursors/wii-pointer.cur") 0 0, auto; */
-  cursor: none !important;
+  cursor: url("/cursors/Normal Select.cur"), auto;
+}
+
+button,
+a,
+summary,
+select,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="range"],
+input[type="checkbox"],
+input[type="radio"],
+.cursor-pointer,
+.red-arrow,
+.link {
+  cursor: url("/cursors/Link Select.cur"), pointer !important;
+}
+
+button *,
+a *,
+summary *,
+select *,
+[role="button"] *,
+input:is(
+    [type="submit"],
+    [type="button"],
+    [type="reset"],
+    [type="range"],
+    [type="checkbox"],
+    [type="radio"]
+  )
+  *,
+.link *,
+.red-arrow * {
+  cursor: inherit;
 }
 
 body {

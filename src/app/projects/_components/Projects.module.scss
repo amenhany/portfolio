@@ -44,6 +44,10 @@
             10px 10px 1px 2px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease-out;
         pointer-events: all;
+        cursor: url("/cursors/Link Select.cur"), pointer;
+        * {
+            cursor: inherit;
+        }
 
         img {
             border-radius: 5px;

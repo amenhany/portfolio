@@ -20,7 +20,7 @@ export default function SecretLink({
    };
 
    return (
-      <span onClick={handleClick} className={`text-${color}`}>
+      <span onClick={handleClick} className={`text-${color} link`}>
          {children}
       </span>
    );
