@@ -44,7 +44,7 @@ export default function BootClient() {
 
    return (
       <main
-         className={`boot-page flex flex-col justify-center items-center min-h-screen
+         className={`boot-page flex flex-col justify-center items-center min-h-dvh
             ${!swapped ? 'bg-foreground' : 'bg-red-500'}`}
       >
          <h1

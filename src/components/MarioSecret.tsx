@@ -72,11 +72,11 @@ export default function MarioSecret({ onDone }: { onDone?: () => void }) {
                   }}
                />
                <div
-                  className={`fixed inset-0 min-h-screen w-full bg-black z-15 z-${Math.random() > 0.5 ? '20' : '15'}`}
+                  className={`fixed inset-0 min-h-dvh w-full bg-black z-15 z-${Math.random() > 0.5 ? '20' : '15'}`}
                />
             </>
          ) : (
-            <div className="fixed inset-0 z-60 min-h-screen w-full bg-black">
+            <div className="fixed inset-0 z-60 min-h-dvh w-full bg-black">
                <motion.img
                   src="/images/95.png"
                   alt="Mario '95"

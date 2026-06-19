@@ -22,7 +22,7 @@ export default function ProjectDescription({
          {isVisible && (
             <>
                <div
-                  className="fixed w-screen h-screen top-0 left-0"
+                  className="fixed w-screen h-dvh top-0 left-0"
                   onClick={() => setParam('info', null)}
                />
                <motion.aside

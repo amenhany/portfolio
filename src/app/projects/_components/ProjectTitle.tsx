@@ -27,7 +27,7 @@ const TITLES: Record<Project, ReactNode> = {
 export default function ProjectTitle({ project }: { project: Project }) {
    return (
       <h1
-         className={`${FONTS[project].className} relative z-30 h-10 text-5xl text-center mt-12 shadow-text text-white font-bold`}
+         className={`${FONTS[project].className} relative z-30 h-10 text-5xl text-center mt-12 shadow-text text-white font-bold project-title`}
       >
          {TITLES[project]}
       </h1>

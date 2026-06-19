@@ -33,7 +33,7 @@ export default function ProjectVideo({
       <section>
          <YouTube
             videoId={videoId}
-            iframeClassName={`w-full h-screen object-contain ${hasLoaded ? '' : 'opacity-0'}`}
+            iframeClassName={`w-full h-dvh object-contain ${hasLoaded ? '' : 'opacity-0'}`}
             opts={{
                playerVars: {
                   autoplay: 1,
@@ -64,7 +64,7 @@ export default function ProjectVideo({
          {!hasLoaded && (
             <>
                <div
-                  className="fixed h-screen w-full z-80 top-1/2 -translate-y-1/2"
+                  className="fixed h-dvh w-full z-80 top-1/2 -translate-y-1/2"
                   // onClick={() => attemptPlay(videoRef.current)}
                >
                   <img

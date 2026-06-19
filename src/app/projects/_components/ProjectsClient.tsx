@@ -57,24 +57,30 @@ export default function ProjectsClient() {
    }
 
    return (
-      <>
-         {showProjects && (
-            <section className="relative">
-               <ProjectTitle project={projects[index]} />
-               <ProjectCarousel index={index} setIndex={updateProjects} />
-            </section>
-         )}
-         <DialogueLoader
-            onDone={
-               showProjects
-                  ? () => {}
-                  : () => {
-                       loadProjects();
-                       setParam('dialogue', projects[index]);
-                    }
-            }
-         />
+      <div className="relative flex flex-col h-dvh overflow-hidden">
+         <div className="flex flex-col flex-1 min-h-0 gap-5 md:gap-12">
+            {showProjects && (
+               <>
+                  <ProjectTitle project={projects[index]} />
+                  <div className="flex-1 flex items-center justify-center min-h-0">
+                     <ProjectCarousel index={index} setIndex={updateProjects} />
+                  </div>
+               </>
+            )}
+         </div>
+         <section className="relative h-[40vh] sm:w-4/5 w-9/10 flex justify-center shrink-0 mb-5 ms-auto me-auto">
+            <DialogueLoader
+               onDone={
+                  showProjects
+                     ? () => {}
+                     : () => {
+                          loadProjects();
+                          setParam('dialogue', projects[index]);
+                       }
+               }
+            />
+         </section>
          <Secrets cleanUp={showProjects ? playBGM : () => {}} />
-      </>
+      </div>
    );
 }

@@ -1,6 +1,7 @@
 .projectCard {
     width: calc(20vw + 11rem);
-    min-width: 16rem;
+    // max-width: 50vh;
+    top: 50%;
     aspect-ratio: 16/10;
     border-radius: 13px;
     background: black;
@@ -8,6 +9,10 @@
     backface-visibility: hidden; // Prevents "jitter" on some WebKit browsers
     transform-style: preserve-3d;
     pointer-events: none;
+
+    @media (min-aspect-ratio: 16/10) {
+        max-width: 50vh;
+    }
 
     &::before {
         content: "";

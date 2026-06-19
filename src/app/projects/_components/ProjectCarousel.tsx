@@ -31,10 +31,10 @@ export default function ProjectCarousel({
    );
 
    return (
-      <div className="relative mt-4 flex justify-center items-center h-100 w-full select-none">
+      <div className="relative flex justify-center items-center w-full h-full select-none carousel">
          <RedArrow onClick={() => paginate(-1)} direction="left" />
 
-         <div className="relative flex justify-center items-center w-full h-64">
+         <div className="relative flex justify-center items-center w-full h-full mb-13">
             {PROJECTS.map((name, i) => {
                let offset = i - index;
                if (offset > PROJECTS.length / 2) offset -= PROJECTS.length;
@@ -74,7 +74,7 @@ const variants: Variants = {
          };
    },
    active: (off: number) => ({
-      x: `calc(${off} * 29vw)`, // Distance between cards
+      x: `calc(${off} * 70%)`, // Distance between cards
       scale: off === 0 ? 1.2 : 0.8,
       opacity: Math.abs(off) > 1 ? 0 : off === 0 ? 1 : 0.6,
       // filter: off === 0 ? 'blur(0px)' : 'blur(2px)',
@@ -89,7 +89,7 @@ const variants: Variants = {
    clicked: {
       scale: 1,
       position: 'fixed',
-      height: '100vh',
+      height: '100dvh',
       width: '100%',
       zIndex: 80,
       border: 'none',
@@ -182,7 +182,7 @@ function RedArrow({
 }) {
    return (
       <motion.div
-         className={`cursor-pointer red-arrow z-50 absolute ${direction === 'left' ? 'lg:left-[23vw] sm:left-[15vw] left-[23vw] -rotate-90' : 'lg:right-[23vw] sm:right-[15vw] right-[23vw] rotate-90'} -bottom-5 sm:bottom-auto`}
+         className={`cursor-pointer red-arrow z-50 absolute ${direction === 'left' ? 'lg:left-[23vw] sm:left-[15vw] left-[20vw] -rotate-90' : 'lg:right-[23vw] sm:right-[15vw] right-[20vw] rotate-90'} bottom-[2vh] sm:bottom-auto`}
          whileHover={{ scale: 1.1, y: -5 }}
          whileTap={{ scale: 0.9 }}
          onClick={onClick}

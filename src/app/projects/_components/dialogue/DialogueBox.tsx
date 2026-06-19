@@ -62,11 +62,11 @@ export default function DialogueBox({
 
    return (
       <motion.div
-         className={`${styles.dialogueBox} h-[250px] md:h-[300px] p-1 select-none z-20`}
+         className={`${styles.dialogueBox} absolute w-full h-full p-1 select-none z-20`}
          initial={{ width: 0, maxHeight: 0 }}
-         animate={{ width: [0, 0, '80%'], maxHeight: [0, '100%', '100%'] }}
+         animate={{ width: [0, 0, '100%'], maxHeight: [0, '100%', '100%'] }}
          exit={{
-            width: ['80%', 0, 0],
+            width: ['100%', 0, 0],
             maxHeight: ['100%', '100%', 0],
             overflow: 'hidden',
             textWrap: 'nowrap',
@@ -79,7 +79,7 @@ export default function DialogueBox({
             <div className="overflow-auto size-full">
                <Typewriter
                   tokens={tokens}
-                  className="text-sm md:text-lg lg:text-2xl lg:p-14 p-10 font-normal"
+                  className="text-md md:text-lg lg:text-xl lg:p-14 sm:p-10 p-7 font-normal"
                   speed={100}
                   onFinished={handleFinished}
                   skip={shouldSkip}

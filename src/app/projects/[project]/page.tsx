@@ -19,7 +19,7 @@ export default async function Project({
    return (
       <>
          <BackButton project={project} />
-         <main className="bg-black min-h-screen relative overflow-hidden content-end">
+         <main className="bg-black min-h-dvh relative overflow-hidden content-end">
             <ProjectVideo project={project} videoId={info.videoId} />
             <Suspense fallback={null}>
                <ProjectDescription project={project} info={info} />

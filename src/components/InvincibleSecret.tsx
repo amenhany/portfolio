@@ -64,19 +64,20 @@ export default function InvincibleSecret({ onDone }: { onDone?: () => void }) {
    return (
       <>
          <motion.div
-            className="fixed inset-0 z-60 min-h-screen"
+            className="fixed inset-0 z-60 min-h-dvh"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
             transition={{ delay: 6.1, duration: 14, ease: 'easeOut' }}
+            style={{ backgroundColor: '#189EFB' }}
          >
             <img
                src="/images/title-card-subtitle.png"
                alt="Title Card"
-               className="absolute size-full object-cover"
+               className="absolute size-full object-contain"
             />
             <motion.img
                src="/images/title-card.png"
-               className="absolute size-full object-cover"
+               className="absolute size-full object-contain"
                style={{ clipPath: 'inset(0 0 0 0)' }}
                initial={{ clipPath: 'inset(0 0 0 0)' }}
                animate={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -86,7 +87,7 @@ export default function InvincibleSecret({ onDone }: { onDone?: () => void }) {
          {current && (
             <motion.div
                key={index}
-               className="fixed inset-0 z-70 flex justify-center items-center min-h-screen"
+               className="fixed inset-0 z-70 flex justify-center items-center min-h-dvh"
                style={{ backgroundColor: current.background }}
                initial={false}
                animate={{}}
