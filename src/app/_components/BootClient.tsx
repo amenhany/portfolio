@@ -31,12 +31,19 @@ export default function BootClient() {
       if (!started) return;
       AudioManager.Instance().load('/audio/dialogue.wav');
       AudioManager.Instance().load('/audio/next_dialogue.wav');
+      const visited = localStorage.getItem('visited');
 
       const timer = setTimeout(() => {
          setSwapped(true);
          AudioManager.Instance().playSfx('/audio/boot.mp3');
          router.prefetch('/projects');
-         startTransition('/projects?dialogue=welcome&dialogue=about&dialogue=separator');
+         if (visited) startTransition('/projects');
+         else {
+            startTransition(
+               '/projects?dialogue=welcome&dialogue=about&dialogue=separator',
+            );
+            localStorage.setItem('visited', 'yes');
+         }
       }, 780);
 
       return () => clearTimeout(timer);
