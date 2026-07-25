@@ -1,0 +1,8 @@
+{
+    "stack": [
+        { "text": "Unity", "icon": "/images/icons/unity.png" },
+        { "text": "C#", "icon": "/images/icons/csharp.svg" }
+    ],
+    "src": "https://github.com/amenhany/mario-demo",
+    "videoId": "SDwkSgTQmLQ"
+}

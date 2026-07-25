@@ -10,7 +10,6 @@ export const PROJECTS = [
 export type Project = (typeof PROJECTS)[number];
 
 export type ProjectInfo = {
-    text: string;
     src: string;
     stack: {
         text: string;

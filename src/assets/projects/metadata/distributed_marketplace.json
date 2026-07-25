@@ -1,0 +1,12 @@
+{
+    "stack": [
+        { "text": "Java", "icon": "/images/icons/java.svg" },
+        { "text": "Spring Boot", "icon": "/images/icons/springboot.svg" },
+        { "text": "MongoDB", "icon": "/images/icons/mongo.svg" },
+        { "text": "JWT", "icon": "/images/icons/jwt.svg" },
+        { "text": "JavaFX", "icon": "/images/icons/javafx.png" },
+        { "text": "Gradle", "icon": "/images/icons/gradle.svg" }
+    ],
+    "src": "https://github.com/amenhany/distributed-marketplace",
+    "videoId": "IZC1oxipWN8"
+}

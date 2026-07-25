@@ -13,7 +13,7 @@ export default async function Project({
    const { project } = await params;
    if (!PROJECTS.includes(project as Project)) redirect('/projects?dialogue=unknown');
 
-   const info = (await import(`@/assets/projects/${project}.json`))
+   const info = (await import(`@/assets/projects/metadata/${project}.json`))
       .default as ProjectInfo;
 
    return (
@@ -28,3 +28,12 @@ export default async function Project({
       </>
    );
 }
+
+export function generateStaticParams() {
+   const params = PROJECTS.map((p) => ({
+      slug: p,
+   }));
+   return params;
+}
+
+export const dynamicParams = false;

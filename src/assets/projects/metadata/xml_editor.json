@@ -1,0 +1,10 @@
+{
+    "stack": [
+        { "text": "C++", "icon": "/images/icons/cpp.svg" },
+        { "text": "Qt", "icon": "/images/icons/qt.svg" },
+        { "text": "CMake", "icon": "/images/icons/cmake.svg" },
+        { "text": "Graphviz", "icon": "/images/icons/graphviz.svg" }
+    ],
+    "src": "https://github.com/amenhany/xml-parser",
+    "videoId": "whIGkCVLoao"
+}

@@ -1,0 +1,26 @@
+A distributed online marketplace built using **Java 21**, **Spring Boot**, and **MongoDB**.
+
+The system uses a hybrid communication layer:
+
+- A JavaFX GUI communicates with the server using sockets.
+- REST endpoints allow external vendors to integrate with the marketplace.
+
+## Features
+
+- Client and server-side (Jakarta) validation for all requests.
+- Custom Jackson Application Level Protocol for socket communication.
+- CSV Imports.
+- JWT authentication for controllers.
+- AI-powered product enrichment using Spring AI.
+
+## Distributed Database
+
+MongoDB is configured as a sharded cluster:
+
+- Users are distributed using a hashed shard key.
+- Items are sharded by brand.
+- Transactions are sharded by buyer ID.
+
+## Architecture
+
+The project uses a multi-module **Gradle** build using Shared Kernel pattern for common DTOs and socket contracts and using Spring Dependency Management for identical dependency versions across multiple modules.

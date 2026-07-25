@@ -1,0 +1,12 @@
+{
+    "stack": [
+        { "text": "React", "icon": "/images/icons/react.svg" },
+        { "text": "Electron", "icon": "/images/icons/electron.svg" },
+        { "text": "TypeScript", "icon": "/images/icons/typescript.svg" },
+        { "text": "Sass (SCSS)", "icon": "/images/icons/sass.svg" },
+        { "text": "Vitest", "icon": "/images/icons/vitest.png" },
+        { "text": "GitHub Actions (CI/CD)", "icon": "/images/icons/github.svg" }
+    ],
+    "src": "https://github.com/amenhany/cluedo-game",
+    "videoId": "GNuJZLGvZAY"
+}
