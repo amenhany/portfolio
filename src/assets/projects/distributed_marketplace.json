@@ -1,0 +1,13 @@
+{
+    "text": "A distributed online marketplace that uses Java 21, Spring Boot, and MongoDB.\n\nThe project focuses on making a modular and scalable marketplace application that can be accessed using Hybrid communicaton layer:\n\ta JavaFX GUI interface using sockets\n\tREST API endpoints for external vendor integrations.\nThe system also includes:\n\tClient and server-side (Jakarta) validation for all requests\n\ta custom Jackson application level protocol for socket communication\n\tJWT authentication for controllers\n\tcustom authentication for the socket connection\n\tAI-powered product enrichment using Spring AI.\n\nThe Mongo database was configured using containers with a mongo router routing to 2 shards (can be extended). The users are evenly distributed across both shards using a hashed shard key, items are sharded according to brand, as the marketplace has a search by brand feature, so it would only hit one shard, and transactions are sharded by the buyer ID, which ensures the account page which shows previous transactions only hits one shard. The project uses 3 modules configured using Gradle: client, server, and common; and using spring dependency management for identical dependency versions across multiple modules.",
+    "stack": [
+        { "text": "Java", "icon": "/images/icons/java.svg" },
+        { "text": "Spring Boot", "icon": "/images/icons/springboot.svg" },
+        { "text": "MongoDB", "icon": "/images/icons/mongo.svg" },
+        { "text": "JWT", "icon": "/images/icons/jwt.svg" },
+        { "text": "JavaFX", "icon": "/images/icons/javafx.png" },
+        { "text": "Gradle", "icon": "/images/icons/gradle.svg" }
+    ],
+    "src": "https://github.com/amenhany/distributed-database",
+    "videoId": "IZC1oxipWN8"
+}

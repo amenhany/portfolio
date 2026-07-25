@@ -1,0 +1,37 @@
+[
+    [
+        { "text": "This is a team project for a marketplace that relies on " },
+        { "text": "Distributed Systems", "color": "red-400" },
+        { "text": ", namely it uses a distributed " },
+        { "text": "Mongo", "color": "orange-400" },
+        { "text": " Database with a " },
+        { "text": "Spring Boot", "color": "green-500" },
+        { "text": " backend." }
+    ],
+    [
+        {
+            "text": "We chose "
+        },
+        { "text": "Mongo", "color": "orange-400" },
+        {
+            "text": " since it had sharding capabilities out of the box and I was pretty good at its queries already."
+        }
+    ],
+    [
+        {
+            "text": "While this was a team project, I worked on the backend and the database as well as the project architecture (technologies used, multi-module setup for client, server, common and their dependencies)."
+        }
+    ],
+    [
+        {
+            "text": "Since I was already familiar with the backend, database and distributed concepts, the project did not take very long to plan nor implement. Took me I think 3 days total to finish the entire thing. The development process was accelerated using coding agents for debugging and repetitive code. I reviewed every line of code and manually tweaked any weird AI fixes to comply with our chosen patterns."
+        }
+    ],
+    [
+        {
+            "text": "The concepts that I focused on the most were the sharded (and vertically partitioned) DB setup, JWT authentication for the controllers, using Jackson for serialization/deserialization of socket messages, and the "
+        },
+        { "text": "AI-powered", "color": "orange-400" },
+        { "text": " product enrichment." }
+    ]
+]

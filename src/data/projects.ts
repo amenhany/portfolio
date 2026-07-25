@@ -4,6 +4,7 @@ export const PROJECTS = [
     'mario',
     'xml_editor',
     'hotel_booking',
+    'distributed_marketplace',
 ] as const;
 
 export type Project = (typeof PROJECTS)[number];

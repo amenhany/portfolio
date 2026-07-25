@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { JSX } from 'react';
 
 export default function SlidingIcon({
    icon,
@@ -6,7 +7,7 @@ export default function SlidingIcon({
    value = 60,
 }: {
    icon: string;
-   text: string;
+   text: JSX.Element | string;
    value?: number;
 }) {
    return (
