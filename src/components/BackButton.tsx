@@ -5,10 +5,13 @@ import { AudioManager } from '@/lib/AudioManager';
 import { Undo2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { MouseEventHandler } from 'react';
 
-export default function BackButton({ project }: { project: string }) {
+export default function BackButton() {
    const { startTransition } = useTransition();
+   const params = useParams();
+   const project = params.project as string;
 
    const handleClick: MouseEventHandler<HTMLAnchorElement> = (evt) => {
       AudioManager.Instance().stopMusic();
@@ -21,7 +24,7 @@ export default function BackButton({ project }: { project: string }) {
          initial={{ x: -100, y: 0 }}
          animate={{ x: 0, y: 0 }}
          whileTap={{ y: 5 }}
-         className="fixed top-0 left-0 pt-4 pl-4 z-100 nav-button"
+         className="nav-button"
       >
          <Link href={`/projects?dialogue=${project}`} onClick={handleClick}>
             <Undo2 size={30} />

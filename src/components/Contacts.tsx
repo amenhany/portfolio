@@ -30,9 +30,9 @@ export default function Contacts() {
    }, []);
 
    return (
-      <nav
+      <div
          aria-label="Contact links"
-         className="fixed top-0 left-0 p-4 z-20 flex gap-3 drop-shadow items-center"
+         className="flex gap-3 drop-shadow items-center"
       >
          <motion.button
             aria-expanded={open}
@@ -63,6 +63,6 @@ export default function Contacts() {
                   </motion.a>
                ))}
          </AnimatePresence>
-      </nav>
+      </div>
    );
 }

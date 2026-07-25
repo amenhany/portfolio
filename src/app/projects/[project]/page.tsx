@@ -1,5 +1,4 @@
 import { type Project, type ProjectInfo, PROJECTS } from '@/data/projects';
-import BackButton from './_components/BackButton';
 import ProjectDescription from './_components/ProjectDescription';
 import ProjectVideo from './_components/ProjectVideo';
 import { redirect } from 'next/navigation';
@@ -18,7 +17,6 @@ export default async function Project({
 
    return (
       <>
-         <BackButton project={project} />
          <main className="bg-black min-h-dvh relative overflow-hidden content-end">
             <ProjectVideo project={project} videoId={info.videoId} />
             <Suspense fallback={null}>
