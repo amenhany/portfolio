@@ -36,6 +36,7 @@ export default function Contacts() {
       >
          <motion.button
             aria-expanded={open}
+            data-nav-tooltip="Contacts"
             className="nav-button"
             initial={{ x: -100 }}
             animate={{ x: 0, rotate: open ? 270 : 0 }}
@@ -51,6 +52,7 @@ export default function Contacts() {
                icons.map((icon, i) => (
                   <motion.a
                      key={icon.label}
+                     data-nav-tooltip={icon.label}
                      href={icon.href}
                      target="_blank"
                      initial={{ opacity: 0, x: -20 }}

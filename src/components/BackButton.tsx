@@ -21,6 +21,7 @@ export default function BackButton() {
    };
    return (
       <motion.div
+         data-nav-tooltip="Back"
          initial={{ x: -100, y: 0 }}
          animate={{ x: 0, y: 0 }}
          whileTap={{ y: 5 }}

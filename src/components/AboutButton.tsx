@@ -36,6 +36,7 @@ export default function AboutButton({
    return (
       <button
          {...props}
+         data-nav-tooltip="About"
          onClick={isAlternate ? handleAlternate : handleClick}
          className="drop-shadow nav-button"
       >
