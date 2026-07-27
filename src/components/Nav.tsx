@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import AboutButton from './AboutButton';
@@ -43,14 +44,17 @@ export default function Nav() {
                {leftSlots.map(
                   (slot, i) =>
                      slot.show(pathname) && (
-                        <Suspense key={i} fallback={null}>
-                           {slot.component}
-                        </Suspense>
+                        <React.Fragment key={i}>{slot.component}</React.Fragment>
                      ),
                )}
             </div>
             <div className="pointer-events-auto p-2 flex gap-3 items-center">
-               {rightSlots.map((slot) => slot.show(pathname) && slot.component)}
+               {rightSlots.map(
+                  (slot, i) =>
+                     slot.show(pathname) && (
+                        <React.Fragment key={i}>{slot.component}</React.Fragment>
+                     ),
+               )}
             </div>
          </nav>
       </NavTooltip>

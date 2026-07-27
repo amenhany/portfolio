@@ -14,6 +14,7 @@ export default function ProjectVideo({
 }) {
    const [hasLoaded, setHasLoaded] = useState(false);
    const [showSpinner, setShowSpinner] = useState(false);
+   const [muted, setMuted] = useState(0);
 
    useEffect(() => {
       const timer = setTimeout(() => {
@@ -24,6 +25,10 @@ export default function ProjectVideo({
 
       return () => clearTimeout(timer);
    }, [hasLoaded]);
+
+   useEffect(() => {
+      setMuted(localStorage.getItem('muted') === 'yes' ? 1 : 0);
+   }, []);
 
    function onLoad() {
       setHasLoaded(true);
@@ -41,7 +46,7 @@ export default function ProjectVideo({
                   loop: 1,
                   playlist: videoId,
                   controls: 0,
-                  mute: localStorage.getItem('muted') === 'yes' ? 1 : 0,
+                  mute: muted,
                   modestbranding: 1,
                   rel: 0,
                },
