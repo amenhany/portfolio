@@ -29,7 +29,7 @@ export default async function Project({
 
 export function generateStaticParams() {
    const params = PROJECTS.map((p) => ({
-      slug: p,
+      project: p,
    }));
    return params;
 }
